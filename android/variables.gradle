@@ -1,0 +1,23 @@
+ext {
+    // SDK versions for Android compatibility
+    minSdkVersion = 24        // Minimum SDK version supported
+    compileSdkVersion = 34    // Compiling with SDK 34 (Android 14)
+    targetSdkVersion = 34     // Targeting Android 14 (API level 34)
+
+    // AndroidX dependencies versioning
+    androidxActivityVersion = '1.8.0'               // Latest AndroidX Activity version
+    androidxAppCompatVersion = '1.6.1'              // Latest AppCompat version for backward compatibility
+    androidxCoordinatorLayoutVersion = '1.2.0'      // CoordinatorLayout version for Material Design components
+    androidxCoreVersion = '1.12.0'                  // Core libraries for AndroidX
+    androidxFragmentVersion = '1.6.2'               // Fragment support version for managing UI fragments
+    coreSplashScreenVersion = '1.0.1'               // Android 12+ splash screen version
+    androidxWebkitVersion = '1.9.0'                 // WebView and WebKit components for AndroidX
+
+    // Testing libraries
+    junitVersion = '4.13.2'                         // JUnit version for unit tests
+    androidxJunitVersion = '1.1.5'                  // AndroidX JUnit for instrumented tests
+    androidxEspressoCoreVersion = '3.5.1'           // Espresso version for UI testing
+
+    // Cordova Android platform version
+    cordovaAndroidVersion = '10.1.1'                // Cordova Android version for hybrid apps
+}

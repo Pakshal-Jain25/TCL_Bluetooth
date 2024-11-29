@@ -1,0 +1,49 @@
+<app-navbar/>
+<div class="complaint-container">
+  <!-- Complaint Form Section -->
+  <div class="complaint-card">
+    <div class="top-center-image">
+      <img src="../../../../assets/Complaint Illustration.svg" alt="Complaint Illustration" />
+    </div>
+    <h3>Complaint</h3>
+
+    <!-- Complaint Form -->
+    <form [formGroup]="complaintForm" (ngSubmit)="onSubmitComplaint()">
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" formControlName="subject" placeholder="Subject" required />
+
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Description" required></textarea>
+
+        <label for="attachments">Attachments</label>
+        <input type="file" id="attachments" formControlName="attachments" accept=".jpg,.png,.pdf" />
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+  <!-- Complaint History Section -->
+  <div class="complaint-history">
+    <h3>Complaint History</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Subject</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let complaint of complaintHistory">
+          <td>{{ complaint.date }}</td>
+          <td>{{ complaint.subject }}</td>
+          <td [ngClass]="{'pending': complaint.status === 'Pending', 'completed': complaint.status === 'Completed'}">
+            {{ complaint.status }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

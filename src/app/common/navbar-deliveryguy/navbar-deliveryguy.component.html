@@ -1,0 +1,32 @@
+<div class="consumer-dashboard">
+  <!-- Navbar with hamburger, company logo, and profile icon -->
+  <div class="navbar">
+
+    <div class="company-details">
+      <img src="../../../assets/navbar/Group 32.svg" alt="Company Logo" class="company-logo" />
+    </div>
+    <button class="profile-button" (click)="toggleProfileMenu()">
+      <img src="../../../assets/navbar/Group.svg" alt="Profile Icon" />
+    </button>
+  </div>
+
+  <!-- Profile dropdown menu -->
+  <div class="profile-menu" [ngClass]="{ 'open': isProfileMenuOpen }">
+    <ul>
+      <li (click)="closeProfileMenu()">
+        <img src="../../../assets/back-blue.svg" alt="Back Icon" />
+        <span class="text-blue-500">Back</span>
+      </li>
+      <li>
+        <img src="../../../assets/Settinmg icon.svg" alt="Settings Icon" />
+        <span>Settings</span>
+      </li>
+      <li>
+        <img src="../../../assets/Log out icon.svg" alt="Logout Icon" />
+        <button (click)="LogOut()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  
+</div>

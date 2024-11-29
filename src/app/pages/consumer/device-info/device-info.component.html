@@ -1,0 +1,48 @@
+<app-navbar/>
+<div class="device-info-page">
+  <!-- Navbar with hamburger, company logo, and profile icon -->
+
+  <!-- Device Info Section -->
+  <div class="device-info-container">
+    <h2>Device Info</h2>
+
+    <div class="device-stats">
+      <div class="stat-row">
+        <p class="label">Real-time Gas Consumption</p>
+        <span class="date-update">Last update: {{ lastUpdate || 'N/A' }}</span>
+      </div>
+      <div class="stat-row">
+        <p class="label">Current Consumption</p>
+        <p class="value">{{ currentConsumption || '--' }}</p>
+      </div>
+      <div class="stat-row">
+        <p class="label">Cumulative</p>
+        <p class="value">{{ cumulativeConsumption || '--' }}</p>
+      </div>
+      <div class="stat-row">
+        <p class="label">Flow Rate</p>
+        <p class="value">{{ flowRate || '--' }}</p>
+      </div>
+      <div class="stat-row">
+        <p class="label">Temperature</p>
+        <p class="value">{{ temperature || '--' }}</p>
+      </div>
+      <div class="stat-row">
+        <p class="label">Pressure</p>
+        <p class="value">{{ pressure || '--' }}</p>
+      </div>
+    </div>
+
+    <div class="device-status">
+      <h3>Active</h3>
+      <div class="status-row">
+        <p class="label">Battery</p>
+        <p class="value">{{ battery || '--' }}</p>
+      </div>
+      <div class="status-row">
+        <p class="label">Status</p>
+        <p class="value">{{ status || 'Disconnected' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

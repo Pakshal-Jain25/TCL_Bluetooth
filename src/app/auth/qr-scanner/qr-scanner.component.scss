@@ -1,0 +1,98 @@
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #486aae;
+  padding: 15px;
+
+  .qr-code-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+
+    h2 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .top-center-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+
+    .scanner-wrapper {
+      position: relative;
+      width: 100%;
+      height: auto;
+
+      .camera-feed {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 10px;
+      }
+
+      .scan-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        pointer-events: none;
+
+        img {
+          width: 200px;
+          height: auto;
+        }
+      }
+    }
+
+    .scan-button {
+      background-color: #486aae;
+      color: #ffffff;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #2e307a;
+      }
+
+      &.stop {
+        background-color: #e74c3c;
+
+        &:hover {
+          background-color: #c0392b;
+        }
+      }
+    }
+
+    .scan-actions {
+      margin-top: 20px;
+    }
+
+    .results {
+      color: #27ae60;
+      font-size: 16px;
+      margin-top: 15px;
+      word-wrap: break-word;
+    }
+  }
+}

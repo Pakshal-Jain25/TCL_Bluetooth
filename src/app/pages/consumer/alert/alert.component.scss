@@ -1,0 +1,140 @@
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  justify-content: flex-start;
+  position: relative;
+
+
+  background-color: #748fd8;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+
+
+  h3{
+    text-align:center;
+  }
+
+  .alert-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+
+
+
+    .top-center-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+
+      img {
+        width: 150px;
+        height: auto;
+      }
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .alert-list {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+
+      .alert-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .alert-icon {
+          display: flex;
+          align-items: center;
+
+
+          img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+          }
+
+          span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e74c3c;
+          }
+        }
+
+        .alert-time {
+          font-size: 12px;
+          color: #888;
+        }
+      }
+
+      .alert-details {
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            font-size: 14px;
+            color: #333;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+
+            span {
+              font-size: 12px;
+              color: #888;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .alert-description {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .description-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+
+      p {
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+      }
+
+      .status-icon {
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<div class="consumer-container">
+  <div class="card">
+    <div class="top-center-image">
+      <img src="../../assets/Illustration.svg" alt="Decorative Image" />
+    </div>
+    <div class="form-wrapper" [ngClass]="{ 'slide-left': step === 2, 'slide-right': step === 1 }">
+
+      <!-- Step 1: Mobile Number Input -->
+      <div class="form-step" *ngIf="step === 1">
+        <h3>Enter Mobile Number</h3>
+        <form [formGroup]="mobileForm" (ngSubmit)="onNext()">
+          <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input
+              type="text"
+              id="mobileNumber"
+              formControlName="mobileNumber"
+              placeholder="Enter your 10-digit mobile number"
+              maxlength="10"
+              pattern="[0-9]*"
+              required
+            />
+            <div *ngIf="mobileForm.get('mobileNumber')?.invalid && mobileForm.get('mobileNumber')?.touched">
+              <p class="error-text">Please enter a valid mobile number.</p>
+            </div>
+          </div>
+          <button type="submit" [disabled]="mobileForm.invalid" class="next-button">Next</button>
+          <button type="button" class="back-button" routerLink="/qr-scanner">Back</button>
+        </form>
+      </div>
+
+      <!-- Step 2: OTP Input -->
+      <div class="form-step" *ngIf="step === 2">
+        <h3>Enter OTP</h3>
+        <form [formGroup]="otpForm" (ngSubmit)="onSubmitOTP()">
+          <div class="form-group">
+            <label for="otp">OTP</label>
+            <input
+              type="text"
+              id="otp"
+              formControlName="otp"
+              placeholder="Enter 6-digit OTP"
+              maxlength="6"
+              pattern="[0-9]*"
+              required
+            />
+            <div *ngIf="otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched">
+              <p class="error-text">Please enter a valid 6-digit OTP.</p>
+            </div>
+          </div>
+          <button type="button" class="back-button" (click)="onBack()">Back</button>
+          <button type="submit" [disabled]="otpForm.invalid" class="submit-button" routerLink="/consumer-dashboard">Submit OTP</button>
+        </form>
+      </div>
+    </div>
+    <img src="../../../assets/Group 49.svg">
+  </div>
+
+</div>
+
+
+
