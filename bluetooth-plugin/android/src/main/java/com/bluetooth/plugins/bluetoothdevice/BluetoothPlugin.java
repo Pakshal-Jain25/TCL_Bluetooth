@@ -32,6 +32,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -65,6 +67,7 @@ public class BluetoothPlugin extends Plugin
 
     private static final UUID DEVICE_INFO_SERVICE_UUID = UUID.fromString("0000180A-0000-1000-8000-00805F9B34FB");
     private static final UUID MANUFACTURER_NAME_CHARACTERISTIC_UUID = UUID.fromString("00002A29-0000-1000-8000-00805F9B34FB");
+    private static final int REQUEST_ENABLE_BT = 1;
 
     // State to track values
     private Integer batteryLevel = null;
@@ -74,7 +77,7 @@ public class BluetoothPlugin extends Plugin
     // MQTT Configuration
     private MqttClient mqttClient;
     private final String mqttBroker = "tcp://192.168.29.253:1883"; // Or use local IP like tcp://192.168.1.100:1883
-
+//    private final String mqttBroker = "tcp://broker.hivemq.com:1883";
     @Override
     public void load()
     {
@@ -108,79 +111,73 @@ public class BluetoothPlugin extends Plugin
     }
 
     @PluginMethod
-    public void scanForDevices(PluginCall call)
-    {
-        if(getPermissionState("bluetoothPermissions") != PermissionState.GRANTED)
-        {
-            requestPermissionForAlias("bluetoothPermissions", call, "bluetoothPermissionsCallback");
-            return;
-        }
+    public void scanForDevices(PluginCall call) {
+      if (getPermissionState("bluetoothPermissions") != PermissionState.GRANTED) {
+        requestPermissionForAlias("bluetoothPermissions", call, "bluetoothPermissionsCallback");
+        return;
+      }
 
-        if(bluetoothAdapter == null)
-        {
-            call.reject("Bluetooth not supported");
-            return;
-        }
+      if (bluetoothAdapter == null) {
+        call.reject("Bluetooth not supported");
+        return;
+      }
 
-        if(!bluetoothAdapter.isEnabled())
-        {
-            call.reject("Bluetooth is not enabled");
-            return;
-        }
+      if (!bluetoothAdapter.isEnabled()) {
+        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        getActivity().startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        call.reject("Bluetooth is not enabled. Please enable it and try again.");
+        return;
+      }
 
-        scanning = true;
-        JSONArray devicesArray = new JSONArray();
+      scanning = true;
+      JSONArray devicesArray = new JSONArray();
+      Set<String> deviceAddresses = new HashSet<>();
 
-        // Register the broadcast receiver for found devices
-        Context context = getContext();
-        android.content.BroadcastReceiver receiver = new android.content.BroadcastReceiver()
-        {
-            @Override
-            public void onReceive(Context context, Intent intent)
-            {
-                String action = intent.getAction();
-                if(BluetoothDevice.ACTION_FOUND.equals(action))
-                {
-                    BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                    if (device != null) {
-                        try
-                        {
-                            JSONObject deviceInfo = new JSONObject();
-                            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED)
-                            {
-                                deviceInfo.put("name", device.getName());
-                                deviceInfo.put("address", device.getAddress());
-                                devicesArray.put(deviceInfo);
-                            }
-                        }
-                        catch (JSONException e)
-                        {
-                            Log.e(TAG, "JSON Exception: " + e.getMessage());
-                        }
-                    }
+      // Register the broadcast receiver for found devices
+      Context context = getContext();
+      android.content.BroadcastReceiver receiver = new android.content.BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+          String action = intent.getAction();
+          if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+            if (device != null) {
+              try {
+                if (!deviceAddresses.contains(device.getAddress())) {
+                  JSONObject deviceInfo = new JSONObject();
+                  if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+                    deviceInfo.put("name", device.getName());
+                    deviceInfo.put("address", device.getAddress());
+                    devicesArray.put(deviceInfo);
+                    deviceAddresses.add(device.getAddress());
+                  }
                 }
+              } catch (JSONException e) {
+                Log.e(TAG, "JSON Exception: " + e.getMessage());
+              }
             }
-        };
-
-        context.registerReceiver(receiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
-
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED)
-        {
-            call.reject("Bluetooth scan permission not granted");
-            return;
+          }
         }
+      };
 
-        bluetoothAdapter.startDiscovery();
+      context.registerReceiver(receiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
 
-        // Stop discovery after 10 seconds
-        handler.postDelayed(() -> {
-            bluetoothAdapter.cancelDiscovery();
-            context.unregisterReceiver(receiver);
-            JSObject result = new JSObject();
-            result.put("devices", devicesArray);
-            call.resolve(result);
-            scanning = false;
-        }, 10000);
+      if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+        call.reject("Bluetooth scan permission not granted");
+        return;
+      }
+
+      bluetoothAdapter.startDiscovery();
+
+      // Stop discovery after 10 seconds
+      handler.postDelayed(() -> {
+        bluetoothAdapter.cancelDiscovery();
+        context.unregisterReceiver(receiver);
+        JSObject result = new JSObject();
+        result.put("devices", devicesArray);
+        call.resolve(result);
+        scanning = false;
+      }, 10000);
     }
 
     @PluginMethod
@@ -214,7 +211,7 @@ public class BluetoothPlugin extends Plugin
             return;
         }
 
-        bluetoothGatt = device.connectGatt(getContext(), false, new BluetoothGattCallback() {
+        bluetoothGatt = device.connectGatt(getContext(), true, new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState)
             {
@@ -237,6 +234,7 @@ public class BluetoothPlugin extends Plugin
                 else if(newState == BluetoothGatt.STATE_DISCONNECTED)
                 {
                     Log.d(TAG, "Disconnected from GATT server.");
+//                    call.resolve("false");
                     bluetoothGatt.close();
                     bluetoothGatt = null;
                 }
@@ -311,18 +309,20 @@ public class BluetoothPlugin extends Plugin
                             {
                                 mqttClient = new MqttClient(mqttBroker, MqttClient.generateClientId(), null);
                                 mqttClient.connect();
+                                System.out.println("connected to mqtt");
+
                             }
-                            JSONObject deviceData = new JSONObject();
+                            JSObject deviceData = new JSObject();
                             deviceData.put("batteryLevel", batteryLevel);
                             deviceData.put("manufacturerName", manufacturerName);
                             MqttMessage message = new MqttMessage(deviceData.toString().getBytes());
                             mqttClient.publish("home/device/data", message);
                             System.out.println("data successfully sent to angular");
-                            JSObject result = new JSObject();
-                            result.put("true",true);
-                            call.resolve(result);
+//                            JSObject result = new JSObject();
+//                            result.put("true",true);
+                            call.resolve(deviceData);
                         }
-                        catch (MqttException | JSONException e)
+                        catch (Exception e)
                         {
                             Log.e(TAG, "Failed to send data to MQTT broker: " + e.getMessage());
                         }
