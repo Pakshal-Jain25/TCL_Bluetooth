@@ -16,6 +16,7 @@ import { QrCodeScanComponent } from './pages/delivery/qr-code-scan/qr-code-scan.
 import { AuthGuard } from './auth.guard';
 import { WarehouseGuyComponent } from './pages/admin/warehouse-guy/warehouse-guy.component';
 import { DeliveryGuyComponent } from './pages/admin/delivery-guy/delivery-guy.component';
+import { BluetoothDeviceComponent } from './bluetooth-device/bluetooth-device.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -27,6 +28,10 @@ export const routes: Routes = [
     path: 'qr-scanner',
     component: QrScannerComponent,
     
+  },
+  {
+    path: 'bluetooth-device',
+    component: BluetoothDeviceComponent
   },
   {
     path: 'consumers',

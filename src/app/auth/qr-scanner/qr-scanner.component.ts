@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { BrowserMultiFormatReader, Result } from '@zxing/library';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink,Router } from '@angular/router';
 import { BarcodeFormat, DecodeHintType} from '@zxing/library';
 
 @Component({
@@ -16,7 +16,7 @@ export class QrScannerComponent implements AfterViewInit {
   @ViewChild('video') videoElement!: ElementRef<HTMLVideoElement>;
   @ViewChild('qrCodeContainer') qrCodeContainer!: ElementRef<HTMLDivElement>;
 
-  constructor() {
+  constructor(private _router:Router) {
     // Define the barcode formats to be supported by the reader
     const hints = new Map();
     hints.set(DecodeHintType.POSSIBLE_FORMATS, [
@@ -70,10 +70,14 @@ export class QrScannerComponent implements AfterViewInit {
       this.codeReader.decodeFromVideoDevice(null, video, (result: Result | null, error: any) => {
         if (result) {
           this.scanResult = result.getText();
-          console.log('QR Code scanned:', this.scanResult);
+          // console.log('QR Code scanned:', this.scanResult);
+          if(this.scanResult != undefined)
+          {
+            this._router.navigate(['/bluetooth-device'])
+          }
           this.stopCamera();
         } else if (error) {
-          console.error('QR Scanner error:', error);
+          // console.error('QR Scanner error:', error);
         }
       });
     } catch (e) {

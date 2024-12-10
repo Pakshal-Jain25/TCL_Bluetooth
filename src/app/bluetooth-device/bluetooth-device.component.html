@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Bluetooth Devices</h1>
+  <div style="display: flex;flex-wrap: wrap;">
+    <button mat-raised-button (click)="scan()" [disabled]="isScanning">Scan for Devices</button>
+    <mat-spinner *ngIf="isScanning" diameter="24"></mat-spinner> <!-- Spinner for scanning -->
+  </div>
+
+  <!-- Display error message if any -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Show connection details -->
+  <div *ngIf="isConnected">
+    <!-- <p>{{ res }}</p> -->
+    <h5>Connected to: {{ deviceName }}</h5>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p *ngIf="batteryLevel">Battery Level: {{ batteryLevel }}%</p>
+    <p *ngIf="manufacturer">Manufacturer: {{ manufacturer }}</p>
+    <button mat-raised-button (click)="disconnect()">Disconnect</button>
+  </div>
+
+  <!-- List of Bluetooth devices -->
+  <h5 *ngIf="devices && !isConnected">Available Devices :</h5>
+  <ul *ngIf="!isConnected"> <!-- Hide this list when connected -->
+    <li *ngFor="let device of devices">
+      {{ device.name }} - <p>Device address: {{ device.address }}</p>
+      <div style="display: flex;flex-wrap: wrap;">
+        <button 
+          mat-raised-button 
+          (click)="connect(device.name, device.address)" 
+          [disabled]="connectingDevices[device.address]">
+          Connect
+        </button>
+        <mat-spinner 
+          *ngIf="connectingDevices[device.address]" 
+          diameter="24">
+        </mat-spinner> <!-- Spinner for connection -->
+      </div>
+    </li>
+  </ul>
+</div>

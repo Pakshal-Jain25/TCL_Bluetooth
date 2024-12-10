@@ -13,3 +13,6 @@ project(':capacitor-camera').projectDir = new File('../node_modules/@capacitor/c
 
 include ':capacitor-local-notifications'
 project(':capacitor-local-notifications').projectDir = new File('../node_modules/@capacitor/local-notifications/android')
+
+include ':bluetooth'
+project(':bluetooth').projectDir = new File('../node_modules/bluetooth/android')
