@@ -36,13 +36,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let complaint of complaintHistory">
-          <td>{{ complaint.date }}</td>
-          <td>{{ complaint.subject }}</td>
-          <td [ngClass]="{'pending': complaint.status === 'Pending', 'completed': complaint.status === 'Completed'}">
-            {{ complaint.status }}
-          </td>
-        </tr>
+        @for (complaint of complaintHistory; track complaint) {
+          <tr>
+            <td>{{ complaint.date }}</td>
+            <td>{{ complaint.subject }}</td>
+            <td [ngClass]="{'pending': complaint.status === 'Pending', 'completed': complaint.status === 'Completed'}">
+              {{ complaint.status }}
+            </td>
+          </tr>
+        }
       </tbody>
     </table>
   </div>

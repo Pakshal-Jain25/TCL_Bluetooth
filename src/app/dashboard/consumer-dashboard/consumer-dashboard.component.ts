@@ -1,12 +1,12 @@
 import { RouterLink } from '@angular/router';
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../../common/navbar/navbar.component";
 
 @Component({
   selector: 'app-consumer-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, NavbarComponent],
+  imports: [RouterLink, NavbarComponent],
   templateUrl: './consumer-dashboard.component.html',
   styleUrls: ['./consumer-dashboard.component.scss']
 })

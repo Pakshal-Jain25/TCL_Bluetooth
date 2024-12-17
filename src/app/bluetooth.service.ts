@@ -8,37 +8,37 @@ const { BluetoothPlugin } = Plugins;
   providedIn: 'root',
 })
 export class BluetoothService {
-  private client: mqtt.MqttClient;
-  private readonly brokerUrl: string = 'wss://192.168.29.253:9001'; // WebSocket connection to broker
-  private deviceDataSubject = new BehaviorSubject<any>(null); // Initialize the BehaviorSubject
+  // private client: mqtt.MqttClient;
+  // private readonly brokerUrl: string = 'wss://192.168.29.253:9001'; // WebSocket connection to broker
+  // private deviceDataSubject = new BehaviorSubject<any>(null); // Initialize the BehaviorSubject
   
   constructor() {
-    const options = {
-      rejectUnauthorized: false, // This bypasses SSL verification (unsafe for production)
-      // If you have a CA file, you can provide it here like:
-      // ca: fs.readFileSync('/path/to/mqtt.crt')
-    };
+    // const options = {
+    //   rejectUnauthorized: false, // This bypasses SSL verification (unsafe for production)
+    //   // If you have a CA file, you can provide it here like:
+    //   // ca: fs.readFileSync('/path/to/mqtt.crt')
+    // };
   
-    this.client = mqtt.connect(this.brokerUrl,options);
+    // this.client = mqtt.connect(this.brokerUrl,options);
 
-    this.client.on('connect', () => {
-      console.log('Connected to MQTT broker');
-      this.client.subscribe('home/device/data', (err) => {
-        if (err) {
-          console.log('Failed to subscribe: ', err);
-        } else {
-          console.log('Subscribed to topic');
-        }
-      });
-    });
+    // this.client.on('connect', () => {
+    //   console.log('Connected to MQTT broker');
+    //   this.client.subscribe('home/device/data', (err) => {
+    //     if (err) {
+    //       console.log('Failed to subscribe: ', err);
+    //     } else {
+    //       console.log('Subscribed to topic');
+    //     }
+    //   });
+    // });
 
-    this.client.on('message', (topic: string, message: Buffer) => {
-      const payload = JSON.parse(message.toString()); // Parse the JSON data
-      console.log("Payload:",payload);
-      if (topic === 'home/device/data') {
-        this.deviceDataSubject.next(payload); // Push the JSON data to BehaviorSubject
-      }
-    });
+    // this.client.on('message', (topic: string, message: Buffer) => {
+    //   const payload = JSON.parse(message.toString()); // Parse the JSON data
+    //   console.log("Payload:",payload);
+    //   if (topic === 'home/device/data') {
+    //     this.deviceDataSubject.next(payload); // Push the JSON data to BehaviorSubject
+    //   }
+    // });
   }
 
   async scanForDevices(): Promise<any> {
@@ -65,9 +65,9 @@ export class BluetoothService {
   //   return this.deviceDataSubject.asObservable(); // Expose the observable to the component
   // }
 
-  publishData(topic: string, message: string) {
-    this.client.publish(topic, message);
-  }
+  // publishData(topic: string, message: string) {
+  //   this.client.publish(topic, message);
+  // }
 
   async disconnectDevice(): Promise<void> {
     try {

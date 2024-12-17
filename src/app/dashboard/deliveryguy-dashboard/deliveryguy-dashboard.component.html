@@ -16,14 +16,14 @@
         class="pending-button"
         [class.active]="selectedStatus === 'pending'"
         (click)="filterDeliveries('pending')"
-      >
+        >
         Pending
       </button>
       <button
         class="completed-button"
         [class.active]="selectedStatus === 'completed'"
         (click)="filterDeliveries('completed')"
-      >
+        >
         Completed
       </button>
     </div>
@@ -32,21 +32,22 @@
   <!-- Delivery List -->
   <div class="delivery-list">
     <!-- Pending and Completed deliveries -->
-    <div
-      class="delivery-card"
-      *ngFor="let delivery of filteredDeliveries"
-      [ngClass]="{'clickable': delivery.status === 'pending'}"
-      [routerLink]="delivery.status === 'pending' ? ['/qrdelivery', delivery.id] : null"
-    >
-      <p class="delivery-name">
-        {{ delivery.name }} <span class="delivery-id">ID: {{ delivery.id }}</span>
-      </p>
-      <p class="delivery-address">
-        Address: {{ delivery.address }}
-      </p>
-      <p class="delivery-status">
-        Status: {{ delivery.status | titlecase }}
-      </p>
-    </div>
+    @for (delivery of filteredDeliveries; track delivery) {
+      <div
+        class="delivery-card"
+        [ngClass]="{'clickable': delivery.status === 'pending'}"
+        [routerLink]="delivery.status === 'pending' ? ['/qrdelivery', delivery.id] : null"
+        >
+        <p class="delivery-name">
+          {{ delivery.name }} <span class="delivery-id">ID: {{ delivery.id }}</span>
+        </p>
+        <p class="delivery-address">
+          Address: {{ delivery.address }}
+        </p>
+        <p class="delivery-status">
+          Status: {{ delivery.status | titlecase }}
+        </p>
+      </div>
+    }
   </div>
 </div>

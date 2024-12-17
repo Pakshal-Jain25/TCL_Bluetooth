@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { NavbarWarehouseComponent } from "../../common/navbar-warehouse/navbar-w
 @Component({
   selector: 'app-warehouse-dashboard',
   standalone: true,
-  imports: [RouterLink, CommonModule, NavbarWarehouseComponent],
+  imports: [RouterLink, NavbarWarehouseComponent],
   templateUrl: './warehouse-dashboard.component.html',
   styleUrl: './warehouse-dashboard.component.scss'
 })

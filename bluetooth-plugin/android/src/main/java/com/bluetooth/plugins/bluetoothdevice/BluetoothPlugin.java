@@ -1,6 +1,8 @@
 package com.bluetooth.plugins.bluetoothdevice;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -11,12 +13,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PermissionState;
@@ -25,7 +25,6 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
-import com.getcapacitor.Bridge;
 import com.getcapacitor.Plugin;
 
 import org.json.JSONArray;
@@ -40,7 +39,6 @@ import java.util.Queue;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.MqttException;
 
 @CapacitorPlugin(
   name = "BluetoothPlugin",
@@ -78,11 +76,34 @@ public class BluetoothPlugin extends Plugin
     private MqttClient mqttClient;
     private final String mqttBroker = "tcp://192.168.29.253:1883"; // Or use local IP like tcp://192.168.1.100:1883
 //    private final String mqttBroker = "tcp://broker.hivemq.com:1883";
+    @SuppressLint("MissingPermission")
     @Override
-    public void load()
-    {
-        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    public void load() {
+      bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+//      // Check if Bluetooth is off and prompt the user to enable it
+//      if (bluetoothAdapter != null && !bluetoothAdapter.isEnabled()) {
+//        // Request the user to enable Bluetooth directly
+//        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//        getActivity().startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+//      }
     }
+
+    // Handle the result of Bluetooth enable request in onActivityResult (if required)
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//      super.onActivityResult(requestCode, resultCode, data);
+//
+//      if (requestCode == REQUEST_ENABLE_BT) {
+//        if (resultCode == Activity.RESULT_OK) {
+//          Log.d(TAG, "Bluetooth enabled successfully");
+//          // Bluetooth is enabled, you can continue with your Bluetooth operations
+//        } else {
+//          Log.d(TAG, "Bluetooth enabling failed");
+//          // Handle the case where Bluetooth was not enabled, e.g., show a prompt to the user
+//        }
+//      }
+//    }
 
     @PluginMethod
     public void checkPermissions(PluginCall call)
@@ -234,9 +255,9 @@ public class BluetoothPlugin extends Plugin
                 else if(newState == BluetoothGatt.STATE_DISCONNECTED)
                 {
                     Log.d(TAG, "Disconnected from GATT server.");
-//                    call.resolve("false");
                     bluetoothGatt.close();
-                    bluetoothGatt = null;
+                    call.reject("Unable to connect to selected device");
+
                 }
             }
 

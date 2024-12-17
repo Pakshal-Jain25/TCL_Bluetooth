@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BluetoothService } from '../bluetooth.service';
-import { CommonModule } from '@angular/common';
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Import spinner module
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-bluetooth-device',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,MatButtonModule,MatProgressSpinnerModule],
+  imports: [RouterOutlet, MatButtonModule, MatProgressSpinnerModule],
   templateUrl: './bluetooth-device.component.html',
   styleUrl: './bluetooth-device.component.scss'
 })
@@ -23,7 +23,10 @@ export class BluetoothDeviceComponent {
   isScanning: boolean = false;
   connectingDevices: { [key: string]: boolean } = {}; // Track connecting state for each device
   private result : any;
-  errorMessage: string | null = null; // Added error message property
+  BatteryError: string | null = null; // Added error message property
+  MfcNameError: string | null = null;
+  ConnectionError: string|null = null;
+  ScanError: string|null = null;
 
   constructor(private bluetoothService: BluetoothService) {}
 
@@ -48,6 +51,7 @@ export class BluetoothDeviceComponent {
   }
 
   async scan() {
+    this.devices = [];
     this.isScanning = true; // Start spinner for scanning
     try {
       const result = await this.bluetoothService.scanForDevices();
@@ -56,7 +60,7 @@ export class BluetoothDeviceComponent {
       }
     } catch (error) {
       console.error('Error scanning for devices:', error);
-      this.errorMessage = 'Failed to scan for devices.';
+      this.ScanError = 'Failed to scan for devices.';
     } finally {
       this.isScanning = false; // Stop spinner for scanning
     }
@@ -81,16 +85,37 @@ export class BluetoothDeviceComponent {
       // this.res = result;
       if (this.result !== undefined) 
       {
-          this.isConnected = true;
-          this.deviceName = name;
-          this.deviceId = deviceId;
-          this.errorMessage = this.result.error;
-          this.manufacturer = this.result.manufacturerName;
-          this.batteryLevel = this.result.batteryLevel;  
+          if(this.result.batteryLevel == undefined)
+          {
+            this.isConnected = true;
+            this.deviceName = name;
+            this.manufacturer = this.result.manufacturerName;
+            this.BatteryError = "Error: Battery Service not found";
+          }
+          else if(this.result.batteryLevel == undefined && this.result.manufacturerName == undefined)
+          {
+            this.isConnected = true;
+            this.BatteryError = "Error: Battery Service not found";
+            this.MfcNameError = "Error: Unable to fetch to Manufacturer name";
+          }
+          else 
+          {
+            this.isConnected = true;
+            this.deviceName = name;
+            this.deviceId = deviceId;
+            // this.errorMessage = "";
+            this.manufacturer = this.result.manufacturerName;
+            this.batteryLevel = this.result.batteryLevel;
+          }
         // Store the connected device ID
       }
+      else 
+      {
+        console.log(this.result.message);
+        // this.errorMessage = this.result.message;
+      }
     } catch (error) {
-      this.errorMessage = 'Connection failed: ' + (error || 'Unknown error');
+      this.ConnectionError = 'Unable to connect to Device : '+name;
       console.error('Connection failed:', error);
     } finally {
       this.connectingDevices[deviceId] = false;
@@ -102,9 +127,11 @@ export class BluetoothDeviceComponent {
       await this.bluetoothService.disconnectDevice();
       this.isConnected = false;
       this.batteryLevel = null;
+      this.BatteryError = null;
+      this.ConnectionError = null;
       this.deviceId = ''; // Clear the device ID on disconnect
     } catch (error) {
-      this.errorMessage = 'Disconnection failed: ' + (error || 'Unknown error');
+      this.ConnectionError = 'Disconnection failed: ' + (error || 'Unknown error');
       console.error('Disconnection failed:', error);
     }
   }

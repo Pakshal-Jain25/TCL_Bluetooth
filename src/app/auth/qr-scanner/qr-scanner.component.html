@@ -7,29 +7,37 @@
 
     <!-- Video feed for native scanning -->
     <div class="scanner-wrapper">
-      <video #video class="camera-feed" *ngIf="isScanning"></video>
+      @if (isScanning) {
+        <video #video class="camera-feed"></video>
+      }
       <!-- <canvas #canvas class="camera-canvas" *ngIf="isScanning"></canvas> -->
       <!-- Custom scan border for better UI experience -->
-      <div class="scan-overlay" *ngIf="isScanning">
-        <img src="../../../assets/scan-border.svg" alt="Scan Border Image" />
-      </div>
+      @if (isScanning) {
+        <div class="scan-overlay">
+          <img src="../../../assets/scan-border.svg" alt="Scan Border Image" />
+        </div>
+      }
     </div>
 
     <!-- Display scan result -->
     <!-- <p *ngIf="scanResult" routerLink="/bluetooth-device"></p> -->
     <!-- <div class="results">
-      <p>{{ scanResult }}</p>
-    </div> -->
+    <p>{{ scanResult }}</p>
+  </div> -->
 
-    <!-- Display scanning options -->
-    <div class="scan-actions">
-      <button *ngIf="!isScanning" [hidden]="scanResult" (click)="startScan()" class="scan-button">Start Scan</button>
-      <button *ngIf="isScanning" (click)="stopScan()" class="scan-button stop">Stop Scanning</button>
-    </div>
-
-    <!-- Navigation button -->
-    <button class="scan-button" [hidden]="isScanning || !scanResult" routerLink="/consumers" routerLinkActive="router-link-active">Next</button>
+  <!-- Display scanning options -->
+  <div class="scan-actions">
+    @if (!isScanning) {
+      <button [hidden]="scanResult" (click)="startScan()" class="scan-button">Start Scan</button>
+    }
+    @if (isScanning) {
+      <button (click)="stopScan()" class="scan-button stop">Stop Scanning</button>
+    }
   </div>
-  <br>
+
+  <!-- Navigation button -->
+  <button class="scan-button" [hidden]="isScanning || !scanResult" routerLink="/consumers" routerLinkActive="router-link-active">Next</button>
+</div>
+<br>
   <img src="../../../assets/Group 42.svg" alt="">
 </div>

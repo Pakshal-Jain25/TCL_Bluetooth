@@ -1,14 +1,14 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { BrowserMultiFormatReader, Result } from '@zxing/library';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink,Router } from '@angular/router';
 import { BarcodeFormat, DecodeHintType} from '@zxing/library';
 
 @Component({
   selector: 'app-qr-scanner',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './qr-scanner.component.html',
   styleUrls: ['./qr-scanner.component.scss']
 })
