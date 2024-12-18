@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -51,7 +52,7 @@ public class BackgroundService extends Service {
       NotificationChannel serviceChannel = new NotificationChannel(
         CHANNEL_ID,
         "Background Service Channel",
-        NotificationManager.IMPORTANCE_LOW
+        NotificationManager.IMPORTANCE_DEFAULT
       );
       NotificationManager manager = getSystemService(NotificationManager.class);
       manager.createNotificationChannel(serviceChannel);
@@ -65,10 +66,10 @@ public class BackgroundService extends Service {
     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
       .setContentTitle("TCL")
       .setContentText("Services are running in the background.")
-      .setSmallIcon(R.drawable.ic_notification)
+      .setSmallIcon(R.mipmap.ic_launcher2_round)
       .setContentIntent(pendingIntent)
       .setOngoing(true)  // Makes the notification persistent
-      .setPriority(NotificationCompat.PRIORITY_LOW);
+      .setPriority(NotificationCompat.PRIORITY_HIGH);
 
     startForeground(NOTIFICATION_ID, notificationBuilder.build());  // Starts the service in the foreground
   }
@@ -118,11 +119,12 @@ public class BackgroundService extends Service {
     }
   }
 
+  @SuppressLint("ObsoleteSdkInt")
   private void sendBluetoothNotification() {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
       .setContentTitle("TCL - Bluetooth Alert")
       .setContentText("Please turn on your Bluetooth.")
-      .setSmallIcon(R.drawable.ic_notification)
+      .setSmallIcon(R.mipmap.ic_launcher2_round)
       .setPriority(NotificationCompat.PRIORITY_HIGH)
       .setOngoing(true) // Makes the notification persistent
       .setContentIntent(getBluetoothSettingsPendingIntent()); // Redirect to Bluetooth settings
@@ -136,13 +138,14 @@ public class BackgroundService extends Service {
     }
   }
 
+  @SuppressLint("ObsoleteSdkInt")
   private void updateForegroundNotification(String title, String content) {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
       .setContentTitle(title)
       .setContentText(content)
-      .setSmallIcon(R.drawable.ic_notification)
+      .setSmallIcon(R.mipmap.ic_launcher2_round)
       .setOngoing(true) // Keeps the notification persistent
-      .setPriority(NotificationCompat.PRIORITY_LOW);
+      .setPriority(NotificationCompat.PRIORITY_HIGH);
 
     NotificationManager manager = null;
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -153,6 +156,7 @@ public class BackgroundService extends Service {
     }
   }
 
+  @SuppressLint("ObsoleteSdkInt")
   private void removeBluetoothNotification() {
     NotificationManager manager = null;
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
