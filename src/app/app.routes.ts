@@ -13,7 +13,7 @@ import { WarehouseDashboardComponent } from './dashboard/warehouse-dashboard/war
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
 import { DeliveryguyDashboardComponent } from './dashboard/deliveryguy-dashboard/deliveryguy-dashboard.component';
 import { QrCodeScanComponent } from './pages/delivery/qr-code-scan/qr-code-scan.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { WarehouseGuyComponent } from './pages/admin/warehouse-guy/warehouse-guy.component';
 import { DeliveryGuyComponent } from './pages/admin/delivery-guy/delivery-guy.component';
 import { BluetoothDeviceComponent } from './bluetooth-device/bluetooth-device.component';

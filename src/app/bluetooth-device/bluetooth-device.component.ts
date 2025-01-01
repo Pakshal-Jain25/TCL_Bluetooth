@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BluetoothService } from '../bluetooth.service';
+import { BluetoothService } from '../services/bluetooth.service';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Import spinner module
 import { MatButtonModule } from '@angular/material/button';

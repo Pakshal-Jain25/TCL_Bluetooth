@@ -1,6 +1,6 @@
 import { CanActivateFn,Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from '../services/auth.service';
 
 // Class Guard(Till Angular 14):
 // Requires a class and dependency injection through the constructor. 
