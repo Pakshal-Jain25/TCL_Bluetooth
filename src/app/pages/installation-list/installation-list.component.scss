@@ -1,0 +1,133 @@
+::ng-deep ngx-pull-to-refresh .ngx-ptr-str-container {
+    .ngx-ptr-loadingbar-container {
+        margin-top: 46px !important;
+        transition: transform 0.2s ease-out;
+        will-change: transform;
+        transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1);
+        top: 10%;
+        left: 45% !important;
+        visibility: hidden;
+        display: flex;
+        z-index: 9999;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        background-color: whitesmoke;
+        width: 2rem !important;
+        height: 2rem !important;
+        border-radius: 50%;
+
+        svg {
+            position: relative;
+            top: 0.4rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// .scroll-container{
+//     height: 100vh;
+//     overflow: auto;
+// }
+
+.container {
+    padding: 1rem;
+    padding-top: 4rem;
+    height: calc(100vh - 5rem);
+    overflow: auto;
+
+    .noDataFound {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        p {
+            color: #00000080;
+            text-align: center;
+        }
+    }
+
+    .title {
+        .label {
+            white-space: nowrap;
+        }
+
+        .value {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+
+            &.address {
+                text-align: left;
+            }
+        }
+
+
+
+        .label+.value {
+            margin-inline-start: 0.5rem;
+        }
+    }
+
+    .pole_no {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    p {
+        margin-block: 0.5rem;
+
+        &.label {
+            color: rgb(118 118 118);
+        }
+    }
+
+
+    .mat-expansion-panel+.mat-expansion-panel {
+        margin-top: 1rem;
+    }
+
+    .dates {
+        display: flex;
+        justify-content: flex-start;
+
+        .date:first-child {
+            margin-right: 1rem;
+        }
+    }
+
+    .location {
+        width: 100%;
+
+        .value {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    .ilm_glm {
+        width: 100%;
+        text-align: end;
+    }
+
+    .editIcon {
+        color: #adadad;
+    }
+}
+
+
+.filter_icon {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
+    button {
+        background-color: #1e8bce;
+    }
+}

@@ -1,0 +1,13 @@
+<mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <layout-sidebar (drawer)="toggleDrawer()"></layout-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        @if(showHeader) {
+            <ng-container>
+                <layout-header (drawer)="toggleDrawer()"></layout-header>
+            </ng-container>
+        }
+        <router-outlet (activate)="scrollToTop()"></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

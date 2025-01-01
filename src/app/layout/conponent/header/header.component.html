@@ -1,0 +1,57 @@
+<div class="container">
+    @if(!displaySearchBox) {
+        <ng-container>
+            @if(menuIcon === 'menu')
+            {
+                <ng-container>
+                    <button type="button" mat-icon-button (click)="openDrawer()">
+                        <mat-icon fontSet="material-icons-round">menu</mat-icon>
+                    </button>
+                </ng-container>
+            }
+            @else 
+            {
+                <ng-container>
+                    <button type="button" mat-icon-button (click)="back()" [disabled]="disableBackButton">
+                        <mat-icon fontSet="material-icons-round">arrow_back</mat-icon>
+                    </button>
+                </ng-container>
+            }
+            
+            @if(headerTitle) 
+            {
+                <ng-container>
+                    <p class="title">{{'header.' + headerTitle | translate}}</p>
+                </ng-container>
+            }
+            
+            @if(displaySearchIcon) 
+            {
+                <ng-container>
+                    <button type="button" mat-icon-button (click)="displaySearchBox = true">
+                        <mat-icon fontSet="material-icons-round">search</mat-icon>
+                    </button>
+                </ng-container>
+            }
+        </ng-container>    
+    } 
+    @else 
+    {
+        <ng-container>
+            <button type="button" mat-icon-button (click)="backButtonClickHandler()">
+                <mat-icon fontSet="material-icons-round">arrow_back</mat-icon>
+            </button>
+            <form [formGroup]="searchBoxForm" (ngSubmit)="applySearchFilterChanges()">
+                <input type="text" class="searchbox" formControlName="search" placeholder="{{'header.search_placeholder' | translate}}">
+                @if((searchBox?.value !== '') && (searchBox?.value)) 
+                {
+                    <ng-container>
+                        <button type="submit" mat-icon-button>
+                            <mat-icon fontSet="material-icons-round">search</mat-icon>
+                        </button>
+                    </ng-container>
+                }
+            </form>
+        </ng-container>
+    }
+</div>

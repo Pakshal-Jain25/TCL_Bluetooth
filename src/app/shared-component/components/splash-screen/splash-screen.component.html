@@ -1,0 +1,14 @@
+<div class="splash_screen">
+    <div class="raseel_logo">
+        <img [src]="(logoSrc === 'IND') ? 'assets/images/TATA-Group-and-TATA-Communications.png' : 'assets/images/Raseel_Vertical_Black-removebg-preview.png'" alt="raseel_horizontal_logo">
+    </div>
+    @if(logoSrc === 'SA')
+    {
+        <ng-container>
+            <div class="footer">
+                <p>{{'auth.powered_by' | translate}}: </p>
+                <img src="assets/images/auth_footer_logo.png" alt="">
+            </div>
+        </ng-container>
+    }
+</div>

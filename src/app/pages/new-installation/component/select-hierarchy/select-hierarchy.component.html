@@ -1,0 +1,14 @@
+<form class="example-form" [formGroup]="selectHierarchyForm">
+    @for(field of selectHierarchyFormField;track field)
+    {
+        <ng-container>
+            <div class="field">
+                <p>{{field}}</p>
+                <mat-form-field class="example-full-width" appearance="fill" (click)="getHierarchyOptions(field)">
+                    <input type="text" matInput formControlName="{{field}}" (focus)="onFocusHandler($event)">
+                    <mat-icon matSuffix>arrow_drop_down</mat-icon>
+                </mat-form-field>
+            </div>
+        </ng-container>
+    }
+</form>

@@ -1,0 +1,22 @@
+<div class="container" [ngClass]="{'full-height': !displayNextButton}">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="submitButton" [ngClass]="{'display-none': !displayNextButton}" [style.display]="setPsition ? 'none':'block'">
+    <button type="button" mat-raised-button (click)="updateFormStepper()">
+        @if(showPerformTestButton)
+        {
+            <ng-container>
+                {{'newInstallation.perform_test' | translate}}
+                <!-- <mat-icon>{{'newInstallation.perform_test_icon' | translate}}</mat-icon> -->
+                <mat-icon class="mat_icon_arrow">arrow_forward</mat-icon>
+            </ng-container>
+        }
+        @else 
+        {
+            <ng-container>
+                {{'newInstallation.' + nextButtonLabel | translate}}
+            </ng-container>
+        }
+    </button>
+</div>

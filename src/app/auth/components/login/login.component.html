@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- <div class="raseel_logo">
+        <img src="../../../../assets/images/raseel_horizontal_logo.png" alt="raseel_horizontal_logo">
+    </div> -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>{{'auth.login.enter_username' | translate}}</mat-label>
+            <input type="text" matInput formControlName="userName" [autocomplete]="userNameAutoComplete">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'auth.login.enter_password' | translate}}</mat-label>
+            <input [type]="showPassword ? 'text': 'password'" matInput formControlName="password" [autocomplete]="passwordAutoComplete">
+            <mat-icon matIconSuffix (click)="showPassword = !showPassword" matRipple>{{showPassword ? 'visibility': 'visibility_off'}}</mat-icon>
+        </mat-form-field>
+        <div class="remember_forgot">
+            <!-- <mat-checkbox color="primary" formControlName="rememberPassword">{{'auth.login.remember' | translate}}</mat-checkbox> -->
+            <p routerLink="../forgot-password">{{'auth.login.forgot_password' | translate}}</p>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-select formControlName="language">
+                <mat-option value="en">English</mat-option>
+                <mat-option value="ar">عربي</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="submit" mat-raised-button>{{'auth.login.login' | translate}}</button>
+    </form>
+</div>

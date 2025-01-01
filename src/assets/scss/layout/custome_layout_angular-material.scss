@@ -1,0 +1,10 @@
+@import "../variables/variables";
+@mixin custome_layout_angular-material {
+    .mat-drawer-container{
+        height: $verticalHeightOfContainer;
+    }
+
+    .mat-drawer-inner-container{
+        background-color: #1e8bce;
+    }
+}

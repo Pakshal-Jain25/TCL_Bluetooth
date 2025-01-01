@@ -1,0 +1,25 @@
+<div class="title" mat-dialog-title>
+    <h3 class="title">
+        {{'termsAndCondition.head' | translate}}
+    </h3>
+</div>
+<div class="container" mat-dialog-content>
+    <div class="content">
+        @for(content of termsAndConditionContent;track content)
+        {
+            <ng-container>
+                <p [innerHTML]="content | safe"></p>
+            </ng-container>
+        }
+    </div>
+    <p class="copyright">
+        {{'termsAndCondition.copyRight' | translate}}
+    </p>
+    <p class="allRightsReserved">
+        {{'termsAndCondition.allRightReserved' | translate}}
+    </p>
+</div>
+<div class="action" mat-dialog-actions>
+    <button type="button" class="accept" mat-raised-button (click)="accept()">{{'termsAndCondition.accept_btn' | translate}}</button>
+    <button type="button" class="cancel" mat-raised-button (click)="cancel()">{{'termsAndCondition.cancel_btn' | translate}}</button>
+</div>

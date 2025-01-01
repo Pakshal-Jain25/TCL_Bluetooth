@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="header">
+        <h3 class="title">{{'listOfInstallation.filter.filter_by' | translate}}</h3>
+        <p class="clear" (click)="filterReset()">{{'listOfInstallation.filter.clear' | translate}}</p>
+    </div>
+    <form class="filter" [formGroup]="installationListDateFilterForm" (ngSubmit)="onSubmit()">
+        <div class="fields">
+            <fieldset>
+                <label>{{'listOfInstallation.filter.start_date' | translate}}</label>
+                <div class="input_field">
+                    <input type="text" #startDateInput (focus)="startDateInput.blur();startDatePicker.open()"
+                        formControlName="startDate" [matDatepicker]="startDatePicker" [max]="maxDateValue">
+                    <mat-datepicker-toggle matIconSuffix [for]="startDatePicker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </div>
+            </fieldset>
+            <fieldset>
+                <label>{{'listOfInstallation.filter.end_date' | translate}}</label>
+                <div class="input_field">
+                    <input type="text" #endDateInput (focus)="endDateInput.blur();endDatePicker.open()" formControlName="endDate"
+                        [matDatepicker]="endDatePicker" [min]="minDateValue">
+                    <mat-datepicker-toggle matIconSuffix [for]="endDatePicker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                </div>
+            </fieldset>
+        </div>
+        <div class="action">
+            <button type="button" mat-raised-button (click)="onSubmit()">
+                {{'listOfInstallation.filter.apply' | translate}}
+            </button>
+        </div>
+    </form>
+</div>

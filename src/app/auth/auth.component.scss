@@ -1,0 +1,85 @@
+@import "../../assets/scss/variables/variables";
+
+.container {
+    background: url('../../assets/images/auth_background.png') no-repeat;
+    height: $verticalHeightOfContainer;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .space {
+        height: 4rem;
+
+        &.india_local {
+            height: 8rem;
+        }
+
+        .innerSpace {
+            height: inherit;
+        }
+
+        &.position_center {
+            height: 4rem
+        }
+    }
+
+    .raseel_logo {
+        width: 10rem;
+        margin-top: 3%;
+
+        &.india_local{
+            width: 15rem;
+            margin-top: 15%;
+        }
+
+
+        img {
+            width: inherit;
+        }
+    }
+
+    .main-content {
+        background-color: #fff;
+        min-width: 20rem;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        z-index: 1;
+
+
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 0;
+
+        p {
+            margin-block: 0rem;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+
+        img {
+            width: 14rem;
+        }
+    }
+}
+
+@media (min-width: 750px) and (min-height: 750px) {
+    .container {
+        .space {
+            &.position_center {
+                height: 8.5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+<div class="container">
+    <h1>Bluetooth Devices</h1>
+    <div style="display: flex;flex-wrap: wrap;">
+      <button mat-raised-button (click)="scan()" [disabled]="isScanning">Scan for Devices</button>
+      @if (isScanning) {
+        <mat-spinner diameter="24"></mat-spinner>
+        } <!-- Spinner for scanning -->
+      </div>
+  
+      <!-- Display error message if any -->
+      @if(!isConnected)
+      {
+        <div>
+          @if (ScanError) 
+          {
+            <div class="error">{{ ScanError }}</div>
+          } 
+          @else if (ConnectionError) 
+          {
+            <div class="error">{{ ConnectionError }}</div>
+          }
+  
+          @if (ScanError || ConnectionError) 
+          {
+            <button mat-raised-button (click)="disconnect()">OK</button>
+          }
+        </div>
+      }
+      <!-- @else if (BatteryError) 
+      {
+        <div class="error">{{ BatteryError }}</div>
+      } -->
+  
+      <!-- Show connection details -->
+      @if (isConnected) {
+        <div>
+          <!-- <p>{{ res }}</p> -->
+          <h5>Connected to: {{ deviceName }}</h5>
+          @if (BatteryError) {
+            <p>{{ BatteryError }}</p>
+          } 
+          
+          @if (MfcNameError) 
+          {
+            <p>{{ MfcNameError }}</p>
+          }
+          
+          @if (batteryLevel) {
+            <p>Battery Level: {{ batteryLevel }}%</p>
+          }
+          
+          @if (manufacturer) {
+            <p>Manufacturer: {{ manufacturer }}</p>
+          }
+  
+          @if (serialNumber) 
+          {
+            <p>Serial Number: {{ serialNumber }}</p>
+          }
+  
+          @if (softwareVersion)
+          {
+            <p>Software Version: {{ softwareVersion }}</p>
+          }
+          <button mat-raised-button (click)="disconnect()">Disconnect</button>
+        </div>
+      }
+  
+      <!-- List of Bluetooth devices -->
+      <!-- @if (devices && !isConnected ) {
+        <h5>Available Devices :</h5>
+      } -->
+      @if (!isConnected && !ConnectionError) {
+        <h5>Available Devices :</h5>
+        <ul> <!-- Hide this list when connected -->
+          @for (device of devices; track device) {
+            <li>
+              {{ device.name }} - <p>Device address: {{ device.address }}</p>
+              <div style="display: flex;flex-wrap: wrap;">
+                <button
+                  mat-raised-button
+                  (click)="connect(device.name, device.address)"
+                  [disabled]="connectingDevices[device.address]">
+                  Connect
+                </button>
+                @if (connectingDevices[device.address]) {
+                  <mat-spinner
+                    diameter="24">
+                  </mat-spinner>
+                  } <!-- Spinner for connection -->
+                </div>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+  

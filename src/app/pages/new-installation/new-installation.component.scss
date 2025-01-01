@@ -1,0 +1,45 @@
+.container {
+  padding: 1rem;
+  padding-top: 3rem;
+  max-height: calc(100vh - 6.5rem - env(safe-area-inset-top));
+  overflow: auto;
+  padding-bottom: 12rem;
+
+  &.full-height {
+    max-height: 100%;
+  }
+}
+
+.submitButton {
+  position: fixed;
+  bottom: 0rem;
+  width: 100%;
+
+  &.display-none {
+    display: none;
+  }
+
+  button {
+    width: inherit;
+    background-color: #35c15a;
+    color: #fff;
+    font-size: 1rem;
+
+    mat-icon {
+      // font-size: unset;
+      height: unset;
+      font-size: 1.5rem;
+      position: relative;
+     top:4px;
+     left: 4rem;
+    }
+  }
+}
+
+@media (min-height: 500px) {
+  .submitButton {
+    button {
+      height: 4rem !important;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<form [formGroup]="locationForm">
+    <div class="field">
+        <p>{{'newInstallation.location.latitude' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <input type="text" matInput formControlName="latitude">
+        </mat-form-field>
+    </div>
+    <div class="field">
+        <p>{{'newInstallation.location.longitude' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <input type="text" matInput formControlName="longitude">
+        </mat-form-field>
+    </div>
+    <div class="field">
+        <p>{{'newInstallation.location.accuracy' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <input type="text" matInput formControlName="accuracy">
+        </mat-form-field>
+    </div>
+    <div class="field">
+        <p>{{'newInstallation.location.address' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <textarea type="text" matInput formControlName="address" (focusin) = 'onFocus()' (blur)="noFocusOut()"></textarea>
+        </mat-form-field>
+    </div>
+    @if(showGetLocationBtn)
+    {
+        <ng-container>
+            <div class="getLocationBtn">
+                <button mat-raised-button color="primary" (click)="getLatLonFromAddress()">{{'newInstallation.location.get_location_btn' | translate}}</button>
+            </div>
+        </ng-container>
+    }
+
+    <div class="fields">
+        <div class="field">
+            <p>{{'newInstallation.location.date_of_installation' | translate}}</p>
+            <mat-form-field appearance="fill">
+                <input type="text" matInput formControlName="dateOfInstallation" >
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <p>{{'newInstallation.location.time' | translate}}</p>
+            <mat-form-field appearance="fill">
+                <input type="text" matInput formControlName="time" >
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="field">
+        <p>{{'newInstallation.location.remark' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <input type="text" matInput formControlName="remark" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+        </mat-form-field>
+    </div>
+    <div class="attachment-section">
+        <p>{{'newInstallation.location.take_snap_or_attach' | translate}}</p>
+        <div class="files-section" [ngClass]="{'image-present': selectedImageList.length > 0}">
+            @for(image of selectedImageList;track image;let i = $index)
+            {
+                <ng-container>
+                    <div class="image">
+                        <img [src]="bypassUnsafeResourseUrl(image)">
+                        <div class="removeButton" (click)="removeSelectedImage(i)">
+                            <mat-icon>close</mat-icon>
+                        </div>
+                    </div>
+                </ng-container>
+            }
+            @if(selectedImageList.length < 5)
+            {
+                <button type="button" mat-icon-button (click)="promptForPhotoUploadSource()">
+                    <mat-icon>add_to_photos</mat-icon>
+                </button>
+            }
+        </div>
+    </div>
+</form>
+
+@if(showScannerBtn)
+{
+    <div class="locationButton">
+        <button type="button" mat-fab color="primary" (click)="checkLocationPermission()">
+            <mat-icon>gps_fixed</mat-icon>
+        </button>
+    </div>    
+}
+
+<!-- <div class="backButton">
+    <button type="button" mat-icon-button (click)="backButtonClickHandler()">
+        <mat-icon fontSet="material-icons-round">arrow_back</mat-icon>
+    </button>
+</div> -->

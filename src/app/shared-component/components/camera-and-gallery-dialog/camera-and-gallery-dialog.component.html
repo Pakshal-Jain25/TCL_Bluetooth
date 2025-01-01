@@ -1,0 +1,17 @@
+
+<div mat-dialog-content class="content">
+    <h1>{{'imageSourceSelectionDialog.choose' | translate}}</h1>
+    <div class="selections">
+        <div class="selection" (click)="dismissDialog('camera')">
+            <mat-icon fontSet="material-icons-round">photo_camera</mat-icon>
+            <p>{{'imageSourceSelectionDialog.camera' | translate}}</p>
+        </div>
+        <div class="selection" (click)="dismissDialog('gallery')">
+            <mat-icon fontSet="material-icons-round">image</mat-icon>
+            <p>{{'imageSourceSelectionDialog.gallery' | translate}}</p>
+        </div>
+    </div>
+</div>
+<div class="action" mat-dialog-actions>
+    <button type="button" mat-flat-button (click)="dismissDialog('cancel')" >{{'imageSourceSelectionDialog.cancel' | translate}}</button>
+</div>

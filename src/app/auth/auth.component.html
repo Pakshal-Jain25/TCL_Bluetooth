@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="raseel_logo" [ngClass]="{'india_local': logoSrc === 'IND'}">
+        <img [src]="(logoSrc === 'IND') ? '../../assets/images/TATA-Communications.png' : '../../assets/images/Raseel_Vertical_Black-removebg-preview.png'" alt="raseel_horizontal_logo">
+    </div>
+    <div class="space" [ngClass]="{'india_local': logoSrc === 'IND'}">
+        <div class="innerSpace"></div>
+    </div>
+    <div class="main-content" >
+        <router-outlet></router-outlet>
+    </div>
+
+    @if(logoSrc === 'SA') 
+    {
+        <ng-container>
+        <div class="footer">
+            <p>{{'auth.powered_by' | translate}}: </p>
+            <img src="../../assets/images/auth_footer_logo.png" alt="">
+        </div>
+        </ng-container>
+    }
+</div>

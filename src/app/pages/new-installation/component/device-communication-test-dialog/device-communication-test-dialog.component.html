@@ -1,0 +1,47 @@
+@if(isCommunicating)
+{
+    <ng-container>
+        <div class="container">
+            <div class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="content">
+                <p class="verify_text">
+                    {{'newInstallation.device_communication_test_dialog.verify_device_details_with_iot_platform' | translate}}
+                </p>
+            </div>
+        </div>
+    </ng-container>    
+}
+@else if(!isCommunicating && testSuccess)
+{
+    <ng-container>
+        <div mat-dialog-content class="content">
+            <div class="icon">
+                <img src="../../../../../assets/images/success.svg" alt="success-icon">
+            </div>
+            <p>{{'newInstallation.device_communication_test_dialog.test_success' | translate}}</p>
+        </div>
+        <div class="action" mat-dialog-actions>
+            <button type="button" class="accept" mat-raised-button
+                (click)="skipDeviceCommunicationTest()">{{'newInstallation.ok_btn' |translate}}</button>
+        </div>
+    </ng-container>    
+}
+@else if(!isCommunicating && testFailed) 
+{
+    <ng-container>
+        <div mat-dialog-content class="content">
+            <div class="icon">
+                <img src="../../../../../assets/images/alert_icon.svg" alt="alert-icon">
+            </div>
+            <p>{{'newInstallation.device_communication_test_dialog.test_one_failed_want_to_skip' | translate}}</p>
+        </div>
+        <div class="action" mat-dialog-actions>
+            <button type="button" class="cancel" mat-raised-button (click)="cancelSkipDeviceCommunicationTest()">{{'termsAndCondition.cancel_btn' |translate}}</button>
+            <button type="button" class="accept" mat-raised-button (click)="skipDeviceCommunicationTest()">{{'newInstallation.ok_btn' |translate}}</button>
+        </div>
+    </ng-container>
+}

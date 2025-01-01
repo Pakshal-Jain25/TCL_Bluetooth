@@ -1,0 +1,20 @@
+<div class="container" mat-dialog-content>
+    <h3 class="title">{{'newInstallation.selectHierarchySearchDialog.select' | translate}} {{data.title}}</h3>
+    <form [formGroup]="searchForm">
+        <mat-icon>search</mat-icon>
+        <input type="text" formControlName="search" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+    </form>
+    <div class="list">
+        @for(option of visibleData;track option)
+        {
+            <ng-container>
+                <p class="list_item" (click)="closeDialog(option)">
+                    {{option}}
+                </p>
+            </ng-container>
+        }
+    </div>
+</div>
+<div class="action" mat-dialog-actions>
+    <button type="button" mat-flat-button (click)="closeDialog()">{{'newInstallation.selectHierarchySearchDialog.close' | translate}}</button>
+</div>

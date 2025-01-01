@@ -1,0 +1,36 @@
+.title {
+    font-size: 1.3rem;
+}
+
+.content {
+    text-align: center;
+    color: #000;
+    font-size: 1.3rem;
+    line-height: inherit;
+    min-width: 20rem;
+
+    .icon {
+        img {
+            width: 5rem;
+        }
+    }
+
+    p{
+        margin-top: 0.5rem;
+    }
+}
+
+.action {
+    button {
+        width: 100%;
+        background: #35c15a;
+        color: #fff;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        min-width: 80vw;
+    }
+}

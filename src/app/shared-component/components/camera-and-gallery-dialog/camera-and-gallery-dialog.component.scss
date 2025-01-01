@@ -1,0 +1,57 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 20rem;
+    padding-bottom: 0rem;
+
+    h1 {
+        font-size: 1.3rem;
+        width: 100%;
+        font-weight: 400;
+
+    }
+
+    .selections {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding-block: 0.7rem;
+        color: #00000080;
+
+        .selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            mat-icon {
+                width: max-content;
+                height: max-content;
+                font-size: 3rem;
+            }
+
+            p {
+                margin-block: 0rem;
+            }
+        }
+    }
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    button {
+        color: #690ab4;
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        min-width: 80vw;
+    }
+}

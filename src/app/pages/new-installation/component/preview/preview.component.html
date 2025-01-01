@@ -1,0 +1,195 @@
+<div class="container">
+    <span class="display-container">
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.controller_feeder_serial_number' | translate}}
+            </p>
+            <p class="value">
+                {{data.serialNo}}
+            </p>
+        </div>
+       
+    </span>
+    <span class="display-container set_width">
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.pole_details' | translate}}
+            </p>
+            <p class="value">
+                {{data.poleNo}}
+            </p>
+        </div>
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.pole_model_number' | translate}}
+            </p>
+            <p class="value">
+                {{data.poleModelNumber}}
+            </p>
+        </div>
+    </span>
+
+    <span class="display-container set_width">
+       
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.location_category' | translate}}
+            </p>
+            <p class="value">
+                {{locationCategoryName}}
+            </p>
+        </div>
+        
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.category' | translate}}
+            </p>
+            <p class="value">
+                {{categoryName}}
+            </p>
+        </div>
+
+    </span>
+
+    <span class="display-container set_width">
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.number_of_lamps' | translate}}
+            </p>
+            <p class="value">
+                {{data.noOfLamps}}
+            </p>
+        </div>
+    </span>
+    <div class="wattage-details">
+        @for(lamp of data.wattageDetails;track lamp;let i = $index)
+        {
+            <ng-container>
+                <hr>
+                <p class="lamp-name">
+                    {{'newInstallation.priview.lamp' | translate}}-{{i + 1}}
+                </p>
+                <span class="display-container set_width">
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.new_wattage' | translate}}
+                        </p>
+                        <p class="value">
+                            {{lamp.ledWattage}}
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.old_wattage' | translate}}
+                        </p>
+                        <p class="value">
+                            {{lamp.oldLampWattage}}
+                        </p>
+                    </div>
+                </span>
+                <span class="display-container set_width">
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.led_model_number' | translate}}
+                        </p>
+                        <p class="value">
+                            {{lamp.ledModelNumber}}
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.brand_name' | translate}}
+                        </p>
+                        <p class="value">
+                            {{getBrandNameFromId(lamp.lampBrandId)}}
+                        </p>
+                    </div>
+                </span>
+                <span class="display-container set_width">
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.max_power_consumption' | translate}}
+                        </p>
+                        <p class="value">
+                            {{lamp.maxPowerConsumption}}
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="label">
+                            {{'newInstallation.priview.min_power_consumption' | translate}}
+                        </p>
+                        <p class="value">
+                            {{lamp.minPowerConsumption}}
+                        </p>
+                    </div>
+                </span>
+            </ng-container>
+        }
+    <hr>
+
+    </div>
+    <span class="display-container set_width">
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.latitude' | translate}}
+            </p>
+            <p class="value">
+                {{data.latitude}}
+            </p>
+        </div>
+        <div class="field">
+            <p class="label">
+                {{'newInstallation.priview.longitude' | translate}}
+            </p>
+            <p class="value">
+                {{data.longitude}}
+            </p>
+        </div>
+    </span>
+
+    <div class="field">
+        <p class="label">
+            {{'newInstallation.priview.accuracy' | translate}}
+        </p>
+        <p class="value">
+            {{data.accuracy}}
+        </p>
+    </div>
+    <div class="field">
+        <p class="label">
+            {{'newInstallation.priview.location' | translate}}
+        </p>
+        <p class="value">
+            {{data.address}}
+        </p>
+    </div>
+    <div class="field">
+        <p class="label">
+            {{'newInstallation.priview.date_of_installation' | translate}}
+        </p>
+        <p class="value">
+            {{data.dateOfInstallation}}
+        </p>
+    </div>
+    <div class="field">
+        <p class="label">
+            {{'newInstallation.priview.remark' | translate}}
+        </p>
+        <p class="value">
+            {{data.remark}}
+        </p>
+    </div>
+    <div class="field">
+        <p>{{'newInstallation.priview.snap_short' | translate}}</p>
+        <div class="files-section">
+            @for(image of selectedImageList;track image)
+            {
+                <ng-container>
+                    <div class="image">
+                        <img [src]="sanitizedImgUrl(image)">
+                    </div>
+                </ng-container>    
+            }
+        </div>
+    </div>
+</div>

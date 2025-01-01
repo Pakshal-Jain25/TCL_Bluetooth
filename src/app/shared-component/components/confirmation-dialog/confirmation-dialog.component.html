@@ -1,0 +1,37 @@
+<div mat-dialog-content class="content">
+    @if(data.alertIcon)
+    {
+        <ng-container>
+            <div class="icon">
+                <img src="../../../../assets/images/alert_icon.svg" alt="alert-icon">
+            </div>
+        </ng-container>
+    }
+    
+    @if(data.tickIcon)
+    {
+        <ng-container>
+            <div class="icon">
+                <img src="../../../../assets/images/success.svg" alt="success-icon">
+            </div>
+        </ng-container>
+    }
+
+    <p>{{data.content}}</p>
+</div>
+<div class="action" mat-dialog-actions>
+    @if(!data.okayButton)
+    {
+        <ng-container>
+            <button type="button" class="cancel" mat-raised-button (click)="cancle()">{{'termsAndCondition.cancel_btn'
+                |translate}}</button>
+            <button type="button" class="accept" mat-raised-button (click)="confirm()">{{acceptButtonLabel}}</button>
+        </ng-container>
+    }
+    @else 
+    {
+        <ng-container>
+            <button type="button" class="accept" mat-raised-button (click)="cancle()">{{'newInstallation.ok_btn' | translate}}</button>
+        </ng-container>
+    }
+</div>

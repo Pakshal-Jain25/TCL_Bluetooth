@@ -1,0 +1,60 @@
+@mixin flex_column_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    color: #fff;
+    width: 18rem;
+
+    .user_detail {
+        border-bottom: 0.15rem solid #85a8d4;
+        margin: 0.5rem;
+
+        .avatar {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 4rem;
+            overflow: hidden;
+
+            img {
+                height: inherit;
+                width: inherit;
+            }
+        }
+
+        p {
+            margin-block: 0.5rem;
+
+            .proect_name {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .sidebar_menu-list {
+        @include flex_column_center();
+
+        .sidebar_menu-item{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            padding-inline-start: 0.5rem;
+
+            .icon{
+                width: 1.5rem;
+
+                img{
+                    width: inherit;
+                    height: inherit;
+                }
+            }
+            
+            &.active{
+                background-color: #217cb5;
+            }
+        }
+    }
+}

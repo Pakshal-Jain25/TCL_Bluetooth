@@ -1,0 +1,9 @@
+<div class="content" mat-dialog-content>
+    <p class="text">
+        {{'logout.logout_message' | translate}}
+    </p>
+</div>
+<div class="action" mat-dialog-actions>
+    <button type="button" mat-flat-button (click)="closeDialog(false)">{{'logout.no' | translate}}</button>
+    <button type="button" mat-flat-button (click)="closeDialog(true)">{{'logout.yes' | translate}}</button>
+</div>

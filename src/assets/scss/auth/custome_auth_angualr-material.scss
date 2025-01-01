@@ -1,0 +1,66 @@
+@mixin custome_auth_angualr-material {
+    .mdc-text-field--filled {
+        &:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+        }
+
+        .mat-mdc-form-field-focus-overlay {
+            background-color: transparent;
+        }
+    }
+
+    .mat-mdc-checkbox {
+        .mdc-form-field {
+            color: blue;
+            
+            .mdc-checkbox{
+                flex: 0 0 12px;
+            }
+        }
+    }
+
+
+
+}
+
+@mixin auth_terms_and_condition {
+    .link {
+        width: 100%;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        &:active, &:visited{
+            color: blue;
+        }
+
+    }
+}
+
+@mixin auth_terms_and_condition_rtl{
+
+    .container{
+        text-align: left;
+        direction: ltr;
+    }
+
+    .action{
+        gap: 0.4rem;
+
+        .mat-mdc-button-base+.mat-mdc-button-base{
+            margin-inline: 0rem;
+        }
+    }
+}
+
+@mixin auth_forgot-password_rtl {
+    .backButton{
+        left: unset;
+        right: 0.5rem;
+    }
+}
+@mixin auth_change-password_rtl {
+    .backButton{
+        left: unset;
+        right: 0.5rem;
+    }
+}

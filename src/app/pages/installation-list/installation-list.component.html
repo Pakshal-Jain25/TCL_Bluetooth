@@ -1,0 +1,79 @@
+<ngx-pull-to-refresh #pullTo spinnerColor="#000000" [distanceForRefresh]="40" [spinnerSize]="20"
+    (refresh)="myRefreshEvent($event)" [isEnable]="enablePullToRefresh">
+    <!-- <div class="scroll-container"> -->
+        <div class="container" infinite-scroll [scrollWindow]="false" [infiniteScrollDistance]="2" (scrolled)="loadMoreInstalledList()" (scroll)="scroll($event)">
+            @if(InstallationListdata.length > 0)
+            {
+                <ng-container>
+                    <mat-accordion>
+                        @for(data of InstallationListdata;track data.serial_no) 
+                        {
+                            <ng-container>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="title">
+                                            <p class="label">{{'listOfInstallation.serial_no' | translate}} :</p>
+                                            <div class="value">
+                                                <b>{{data.serialNo}}</b>
+                                                <button type="button" class="editIcon" mat-icon-button
+                                                    (click)="navigetToEdit(data.serialNo)">
+                                                    <mat-icon fontSet="material-icons-round">edit</mat-icon>
+                                                </button>
+                                            </div>
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div class="pole_no">
+                                        <p class="label">{{'listOfInstallation.pole_no' | translate}} :</p>
+                                        <p class="value">{{data.poleNo}}</p>
+                                    </div>
+                                    <div class="dates">
+                                        <div class="date">
+                                            <p class="label">{{'listOfInstallation.assign_date' | translate}}</p>
+                                            <p class="value">{{data.assignedDate}}</p>
+                                        </div>
+                                        <div class="date">
+                                            <p class="label">{{'listOfInstallation.activated_date' | translate}}</p>
+                                            <p class="value">{{data.completedDate}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p class="label">{{'listOfInstallation.location' | translate}}</p>
+                                        <p class="value address">{{data.address}}</p>
+                                    </div>
+                                    <div class="ilm_glm">
+                                        <p class="label">{{data.productName}}</p>
+                                    </div>
+                                </mat-expansion-panel>
+                            </ng-container>
+                        }
+                    </mat-accordion>
+                </ng-container>
+            }
+            @else 
+            {
+                <ng-container>
+                    <div class="noDataFound">
+                        <p>{{'listOfInstallation.no_record_found' | translate}}</p>
+                    </div>
+                </ng-container>
+            }
+        </div>
+    <!-- </div> -->
+</ngx-pull-to-refresh>
+
+<div class="filter_icon">
+    <button type="button" mat-fab (click)="dateFilterApplied ? clearFilteredViewIfNotAnyFilteredApplied('date') : openDateFilterBottomSheet()">
+        @if(!dateFilterApplied) 
+        {
+            <ng-container>
+                <mat-icon>filter_alt</mat-icon>
+            </ng-container>
+        }
+        @else 
+        {
+            <ng-container>
+                <mat-icon fontSet="material-icons-round">close</mat-icon>
+            </ng-container>
+        }
+    </button>
+</div>

@@ -1,0 +1,61 @@
+<form [formGroup]="lampLoadDetailsForm">
+    <ng-container formArrayName="wattageDetails">
+        @for(control of wattageDetails.controls;track control;let i = $index)
+        {
+            <ng-container>
+                <ng-container [formGroup]="transformToFormGroup(control)">
+                    <p>{{'newInstallation.led_load_details.lamp' | translate}}-{{i + 1}}</p>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.new_wattage' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <input type="number" inputmode="numeric" min="0" pattern="[0-9]*" matInput formControlName="ledWattage" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+                        </mat-form-field>
+                    </div>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.old_wattage' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <input type="number" inputmode="numeric" min="0" pattern="[0-9]*" matInput formControlName="oldLampWattage" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+                        </mat-form-field>
+                    </div>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.led_model_number' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <input type="text" matInput formControlName="ledModelNumber" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+                        </mat-form-field>
+                    </div>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.brand_name' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="lampBrandId">
+                                @for(brand of brandNames;track brand.lampBrandId)
+                                {
+                                    <ng-container>
+                                        <mat-option [value]="brand.lampBrandId">{{brand.lampBrandName}}</mat-option>
+                                    </ng-container>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.max_power_consumption' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <input type="number" inputmode="numeric" min="0" pattern="[0-9]*" matInput formControlName="maxPowerConsumption" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+                        </mat-form-field>
+                    </div>
+                    <div class="field">
+                        <p>{{'newInstallation.led_load_details.min_power_consumption' | translate}}</p>
+                        <mat-form-field appearance="fill">
+                            <input type="number" inputmode="numeric" min="0" pattern="[0-9]*" matInput formControlName="minPowerConsumption" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+                        </mat-form-field>
+                    </div>
+                    @if(noOfLamp > 1)
+                    {
+                        <ng-container>
+                            <hr>
+                        </ng-container>
+                    }
+                </ng-container>
+            </ng-container>
+        }
+    </ng-container>
+</form>

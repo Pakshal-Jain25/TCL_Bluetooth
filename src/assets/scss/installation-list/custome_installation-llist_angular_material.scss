@@ -1,0 +1,48 @@
+@mixin custome_installan-list_angular_material {
+    .mat-accordion {
+        .mat-expansion-panel {
+            &:not(.mat-expanded), &:not(.mat-expansion-panel-spacing) {
+                border-radius: 4px;
+            }
+            .mat-expansion-panel-header{
+                height: unset;
+            }
+        }
+    }
+}
+
+@mixin custome_installation-list-date-filter_angular_material {
+
+    mat-datepicker-toggle{
+        button{
+            height: 2rem;
+            width: 2rem;
+            padding: 0.3rem;
+        }
+    }
+}
+
+@mixin installation-list_rtl {
+    .container{
+
+        .dates{
+            .date:first-child{
+                margin-right: unset !important;
+                margin-left: 1rem;
+            }
+        }
+        .location{
+            .value{
+                direction: ltr;
+
+                &.address{
+                    text-align: right !important;
+                }
+            }
+        }
+    }
+    .filter_icon{
+        right: unset;
+        left: 1rem;
+    }
+}

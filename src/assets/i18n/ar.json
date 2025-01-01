@@ -1,0 +1,239 @@
+{
+  "auth": {
+    "powered_by": "مشغل بواسطة",
+    "login": {
+      "login": "تسجيل الدخول",
+      "enter_username": "اسم االمستخدم",
+      "enter_password": "كلمه السر",
+      "remember": "يتذكر",
+      "forgot_password": "هل نسيت كلمة السر؟",
+      "error": {
+        "please_enter_userName": "الرجاء إدخال اسم المستخدم",
+        "please_enter_password": "الرجاء إدخال كلمة المرور"
+      }
+    },
+    "forgot_password": {
+      "request_for_new_password": "طلب كلمة مرور جديدة",
+      "please_enter_user_name": "الرجاء إدخال اسم المستخدم",
+      "submit": "إرسال",
+      "enter_username": "اسم االمستخدم",
+      "error": {
+        "please_enter_userName": "الرجاء إدخال اسم المستخدم"
+      }
+    },
+    "change_password": {
+      "change_your_password": "غير كلمة المرور الخاصة بك",
+      "enter_username": "اسم االمستخدم",
+      "enter_old_password": "كلمة السر القديمة",
+      "enter_new_password": "كلمة السر الجديدة",
+      "enter_confirm_password": "تأكيد كلمة المرور",
+      "change_password_to_proceed": "يرجى تغيير كلمة مرورك الحالية للمتابعة",
+      "change_password": "تغيير كلمة المرور",
+      "error": {
+        "enter_username": "ادخل اسم المستخدم",
+        "enter_current_password": "أدخل كلمة المرور القديمة",
+        "enter_new_password": "أدخل كلمة مرور جديدة",
+        "enter_confirm_password": "أدخل تأكيد كلمة المرور",
+        "new_password_and_confirm_password_mismatch": "كلمة المرور ليسا متطابقين كلمة المرور الجديدة وتأكيد"
+      }
+    }
+  },
+  "settings": {
+    "profile": {
+      "customer_name": "اسم الزبون",
+      "change_password": "تغيير كلمة المرور",
+      "about": "حول",
+      "next_icon": "navigate_before"
+    },
+    "change_password": {
+      "change_your_password": "غير كلمة المرور الخاصة بك",
+      "enter_old_password": "كلمة السر القديمة",
+      "enter_new_password": "كلمة السر الجديدة",
+      "enter_confirm_password": "تأكيد كلمة المرور",
+      "change_password": "تغيير كلمة المرور",
+      "error": {
+        "enter_old_password": "أدخل كلمة المرور القديمة",
+        "enter_new_password": "أدخل كلمة مرور جديدة",
+        "enter_confirm_password": "أدخل تأكيد كلمة المرور",
+        "new_password_and_confirm_password_mismatch": "كلمة المرور ليسا متطابقين كلمة المرور الجديدة وتأكيد"
+      }
+    }
+  },
+  "sidebar": {
+    "new_installation": "تثبيت جديد",
+    "list_of_installation": "قائمة التركيبات",
+    "settings": "إعدادات",
+    "logout": "تسجيل خروج"
+  },
+  "imageSourceSelectionDialog": {
+    "choose": "إختيار",
+    "camera": "كاميرا",
+    "gallery": "معرض الصور",
+    "cancel": "إلغاء"
+  },
+  "listOfInstallation": {
+    "serial_no": "الرقم التسلسلي",
+    "assign_date": "تاريخ التعيين",
+    "activated_date": "تفعيل التاريخ",
+    "location": "الموقع",
+    "pole_no": "القطب لا",
+    "no_record_found": "لا يوجد سجلات",
+    "filter": {
+      "filter_by": "مصنف بواسطة",
+      "clear": "واضح",
+      "start_date": "تاريخ البدء",
+      "end_date": "تاريخ الانتهاء",
+      "apply": "تطبيق"
+    }
+  },
+  "newInstallation": {
+    "next_btn": "التالي",
+    "ok_btn":"نعم",
+    "submit_btn": "إرسال",
+    "perform_test": "قم بإجراء الاختبار",
+    "perform_test_icon": "arrow_back",
+    "selectHierarchySearchDialog": {
+      "select": "اختيار",
+      "close":"يغلق"
+    },
+    "device_details": {
+      "controller_feeder_serial_number": "الرقم التسلسلي لوحدة التحكم / وحدة التغذية *",
+      "error": {
+        "serial_no_duplicate": "الرقم التسلسلي مكرر",
+        "enter_serial_no_of_controller": "أدخل الرقم التسلسلي لوحدة التحكم"
+      }
+    },
+    "pole_details": {
+      "enter_pole_no": "أدخل رقم القطب *",
+      "number_of_lamps": "عدد المصابيح *",
+      "location_category": "فئة الموقع",
+      "category": "الفئة",
+      "pole_model_number": "رقم موديل القطب",
+      "error": {
+        "enter_pole_details": "أدخل تفاصيل العمود",
+        "pole_no_duplicate": "رقم القطب مكرر"
+      }
+    },
+    "led_load_details": {
+      "lamp": "خروف",
+      "new_wattage": "القوة الكهربائية الجديدة *",
+      "old_wattage": "القوة الكهربائية القديمة *",
+      "led_model_number": "LED رقم موديل",
+      "brand_name": "اسم العلامة التجارية",
+      "max_power_consumption": "أقصى استهلاك الطاقة (W)",
+      "min_power_consumption": "الحد الأدنى من استهلاك الطاقة (W)",
+      "error": {
+        "field_should_not_be_emppty": "يجب ألا يكون الحقل فارغًا"
+      }
+    },
+    "device_communication_test": {
+      "verify_divice_communication_text": "تحقق من اتصال الجهاز عبر منصة إنترنت الأشياء باستخدام هذا الاختبار",
+      "skip": "يتخطى"
+    },
+    "device_communication_test_dialog": {
+      "verify_device_details_with_iot_platform": "التحقق من تفاصيل الجهاز مع منصة IOT",
+      "test_one_failed_want_to_skip": "فشل الاختبار. هل تريد التخطي؟",
+      "test_success": "نجاح"
+    },
+    "location": {
+      "latitude": "خط العرض *",
+      "longitude": "طويل *",
+      "accuracy": "صحة *",
+      "address": "عنوان",
+      "date_of_installation": "تاريخ التثبيت",
+      "time": "زمن",
+      "remark": "أدخل ملاحظة (اختياري)",
+      "take_snap_or_attach": "خذ SNAP أو أرفقه",
+      "back_button_click_confirm_message": "ستتم إعادة توجيهك إلى تحديد شاشة التسلسل الهرمي. الرجاء الضغط على \"موافق\" للتأكيد",
+      "get_location_btn":"الحصول على الموقع",
+      "accuracy_error":"دقة نظام تحديد المواقع العالمي (GPS) أعلى من دقة المشروع",
+      "GPS_service_disabled_error": "يرجى التحقق مما إذا كان GPS / الموقع الخاص بك قيد التشغيل. إذا تم إيقاف تشغيله ، يرجى تمكينه للمتابعة."
+    },
+    "priview": {
+      "controller_feeder_serial_number": "الرقم التسلسلي لوحدة التحكم / وحدة التغذية *",
+      "pole_details": "تفاصيل القطب",
+      "pole_model_number": "رقم موديل القطب",
+      "location_category": "فئة الموقع",
+      "category": "الفئة",
+      "number_of_lamps": "عدد المصابيح *",
+      "new_wattage": "القوة الكهربائية الجديدة *",
+      "old_wattage": "القوة الكهربائية القديمة *",
+      "led_model_number": "LED رقم موديل",
+      "brand_name": "اسم العلامة التجارية",
+      "max_power_consumption": "أقصى استهلاك الطاقة (W)",
+      "min_power_consumption": "الحد الأدنى من استهلاك الطاقة (W)",
+      "latitude": "خط العرض *",
+      "longitude": "طويل *",
+      "accuracy": "صحة *",
+      "location": "الموقع",
+      "date_of_installation": "تاريخ التثبيت",
+      "remark": "دخل ملاحظة",
+      "lamp": "خروف",
+      "snap_short":"الصور أو اللقطات"
+    },
+    "form_submit":{
+      "dene_btn":"منتهي"
+    }
+  },
+  "logout": {
+    "logout_message": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "header": {
+    "list_of_installation": "قائمة التثبيت",
+    "settings": "إعدادات",
+    "about": "حول",
+    "search_placeholder": "البحث عن طريق الرقم التسلسلي أو رقم القطب",
+    "select_hierarchy": "حدد التسلسل الهرمي",
+    "device_details": "تفاصيل الجهاز",
+    "pole_details": "تفاصيل القطب",
+    "led_load_details": "LED تحميل تفاصيل",
+    "device_communication_test": "اختبار اتصال الجهاز",
+    "location": "الموقع",
+    "preview": "معاينة"
+  },
+  "toast": {
+    "successfully_logged_in": "تم تسجيل الدخول بنجاح",
+    "successfully_logged_out": "تم تسجيل الخروج بنجاح",
+    "user_session_timeout": "مهلة جلسة المستخدم",
+    "device_not_found_or_not_allowed": "الجهاز غير موجود أو لم يتم تخصيصه",
+    "started_location_update": "بدأت تحديثات الموقع!",
+    "image_uploaded_successfully": "تم تحميل الصورة بنجاح",
+    "succsessfully_add":"أضيف بنجاح",
+    "failed":"فشل"
+  },
+  "termsAndCondition": {
+    "head": "Terms of Use",
+    "accept_btn": "يقبل",
+    "cancel_btn": "يلغي",
+    "body": [
+      "1. These Terms of Use (\"<b>Terms</b>\") contain important information regarding: <br> (1) Our mobile application called \"Field Engg App by TATACOMMS\" (\"<b>Product</b>\") and the terms under which You may make use of Our Product; and <br> (2) Your responsibility as a user of this Product and related services. <b>Us/Our/We/Tata Communication</b> refers to Tata Communication entity under which it is a party to the agreement/service schedule/order form and its Affiliates. The term \"<b>Affiliate</b>\" means any entity that either controls, is controlled by, or is under common control with Tata Communications Limited. For purposes of the foregoing, \"control\" shall mean the ownership of more than fifty percent (50%) of the (i) voting power to elect the directors of a company, or (ii) ownership in said entity, or (iii) the ability to direct the management or policies of the said entity by any means including shareholders' agreement, voting agreement or otherwise. <b>You/Your</b> refers to the user using the Product and related services. <br><br>",
+      "2. <b>About the Product:</b> The Product allows users to capture the details such as pole coordinates, pole number, pole controller, serial number of controllers installed on the poles. This installation data is relayed to the “Field Engineer App by Tata Communications”, from where an installation report/detail can be extracted. <br><br>",
+      "3. <b>Acceptance of the Terms:</b> Accessing or using the Product and related services, constitutes Your acceptance of these Terms, and You agree to abide by these Terms. If You do not agree with these Terms, You should immediately cease accessing or using the Product whether the Product is being used by website application or mobile application or both. <br><br>",
+      "4. <b>Third Party Software:</b> You acknowledge that the Product and service contains copyrighted software of Our suppliers, which are obtained under a license from such suppliers (\"Third-Party Software\") and could be subject to terms different from than those set forth under these Terms. Your use of any Third-Party Software shall be subject to, and you shall comply with, the terms and conditions of these Terms and the third-party terms and the applicable restrictions. Our suppliers retain all right, title and interest in and to such Third-Party Software and all copies thereof, including all copyright and other intellectual property rights. A list of certain third-party software and their associated licenses terms are available below in clause 22 In case of any conflict between the provisions of these Terms and the third-party terms, the stringent provisions will prevail, and the discretion of such interpretation lies with Us. <br><br>",
+      "5. <b>Reservation of rights:</b> We reserve the right to change these Terms or the right to deny access to any User if they are breaching the Product, from time to time, at Our sole and absolute discretion, for any reason or no reason, without liability and without any notice. We may modify, suspend, or terminate Your access to or use of Our Product anytime for any reason, such as if You violate the letter or spirit of Our Terms or create harm, risk, or possible legal exposure for Us, Our users, or others. We shall have no liability whatsoever for the resulting unavailability of the Product or for any loss of data or transactions caused by planned system outages or the resulting delay, mis-delivery, or non-delivery of data or other information caused by any third-party acts or any other outages of network connectivity providers or the internet infrastructure and network external to the Product or outages, issues and battery/charge unavailability with user mobile handsets. You are responsible for regularly reviewing the Terms, and Your continued usage of the Product constitutes Your acceptance of the amended Terms. You would need to login with your login credentials provided by Us. Upon successful login you acknowledge that you read, understand, and agree to be bound by these Terms and to comply with all applicable laws and regulations, including U.S. export and re-export control laws and regulations but not limited to any open source licensing terms. <br><br>",
+      "6. Access to the Product and related services: <br><br>a. For the purposes of accessing and using this Product and related services, You: <br>i. Are Our existing customer <br>ii. agree to register for Our Product and related services by providing correct and accurate details/data including correct email id, contact number, etc.; <br>iii. agree to receive text messages and phone calls from Us or Our third-party providers for the purposes of registration for Our usage of Product and related services; <br>iv. agree to comply with the system requirements (i.e.) have certain compatible devices, software and data connection as maybe prescribed; <br>v. consent to downloading, accessing and installing updates of the Product and related services, if any, including automatic updates. <br><br>b. You confirm that: <br>i. You are 18 years of age or above; <br>ii. You are authorized to provide Us the information required to allow Us to provide Our services related to / through the Product; <br>iii. You are responsible for all carrier data plan and other fees and taxes associated with Your use of Our Product and related services; and <br>iv. You are responsible for keeping Your device and Your account safe and secure, and You must notify Us promptly of any unauthorized use or security breach of Your account or Our Product and related services. <br><br>",
+      "7. <b>Permissions:</b> You or Your employer must be an authorized user of Our Product and related services for which access is being provided – this will be validated by authentication mechanisms, which may change from time to time. We grant You a limited, revocable, non-exclusive, non-sublicensable, non-transferable permission to use Our Product and related services, subject to and in accordance with Our Terms mentioned herein. This permission is for the sole purpose of enabling You to use Our Product and related Services, in the manner permitted by Our Terms and for specific purposes only. No other licenses or rights are granted to You by implication or otherwise, other than as set out herein. <br><br>",
+      "8. <b>Confidentiality:</b> \"Confidential Information\" shall mean all information disclosed to you that We characterizes as confidential at the time of its disclosure either in writing or orally. You shall use the best efforts to preserve and protect the confidentiality of the Confidential Information at all times. You shall not disclose, disseminate or otherwise publish or communicate Confidential Information to any person, firm, corporation or other third party without the prior written consent of Us. You shall not use any Confidential Information other than in the course of the activities permitted hereunder. You shall notify Us in writing immediately upon discovery of any unauthorized use or disclosure of Confidential Information or any other breach of any of the Terms, and will cooperate with Us in every reasonable way to regain possession of Confidential Information and prevent any further unauthorized use. If you are legally compelled to disclose any of the Confidential Information, then, prior to such disclosure, you will (i) immediately notify Us prior to such disclosure to allow Us an opportunity to contest the disclosure, (ii) assert the privileged and confidential nature of the Confidential Information, and (iii) cooperate fully with Us in protecting against any such disclosure and/or obtaining a protective order narrowing the scope of such disclosure and/or use of the Confidential Information. In the event such protection is not obtained, you shall disclose the Confidential Information only to the extent necessary to comply with the applicable legal requirements. <br><br>",
+      "9. <b>Injunctive Relief:</b> You acknowledge and agree that your breach or threatened breach of these Terms shall cause Us irreparable damage for which recovery of money damages would be inadequate and that We therefore may seek injunctive relief to protect Our rights under these Terms in addition to any and all other remedies available at law or in equity. <br><br>",
+      "10. <b>Intellectual Property:</b> <br><br>a. All trademarks, copyright, domain names, logos, corporate names, design marks, slogans, look and feel of the Product, colour combinations, etc., are all trademarks of, and belong to Us, or Our licensors, as the case maybe. <br>b. You hereby acknowledge and agree that We are the sole and exclusive owner or licensee of all intellectual property rights in and to the Product and related services along with the content and other materials published or made available through the Product. <br>c. All rights are reserved and You agree not to edit, copy, modify, adapt, alter, display, distribute or make any unauthorized use of such intellectual property. <br>d. The services, technology, and/or processes described in the Product may be the subject of intellectual property rights reserved by Us or other third parties. Nothing contained herein shall be construed as conferring to You in any manner, whether by implication, estoppel or otherwise, any license, title, or ownership of or to any intellectual property right of Us or any third party. <br><br>",
+      "11. <b>Conditions for use of the Product and related Services:</b> <br><br>a. You agree and undertake not to use host, display, upload, modify, publish, transmit, update or share any information that: <br>i. belongs to another person and to which the user does not have any right to; <br>ii. is grossly harmful, harassing, blasphemous defamatory, obscene, pornographic, paedophilic, libellous, invasive of another's privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever; <br>iii. harm minors in any way; <br>iv. infringes any patent, trademark, copyright or other proprietary rights; <br>v. violates any law for the time being in force; <br>vi. deceives or misleads the addressee about the origin of such messages or communicates any information which is grossly offensive or menacing in nature; <br>vii. impersonate another person; <br>viii. contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer resource; <br>ix. threatens the unity, integrity, defence, security or sovereignty of any country, friendly relations with foreign states, or public order or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting any other nation. <br>x. The Product and related services can be used only as long as You or Your employer are subscribed to Our Product and services. You must uninstall or stop using and accessing the Product and notify Us when You leave the services of Your employer or are no longer authorized by your employer to access Our Product and services. <br><br>b. Further, by accessing or using this Product and related Services, You agree not to: <br>i. use any data obtained from the Product as part of a commercial product, service or content offering; <br>ii. use any data obtained from the Product for solicitations, commercial or otherwise; <br>iii. sell or otherwise distribute any data obtained from the Product; <br>iv. incorporate any data obtained from the Product into any e-mail or other “white pages” products or services, whether browser based, based on proprietary client-side applications, Web based, or other; <br>v. use the data obtained from the Product in a manner which could be reasonably expected to offend any person for whom the data is relevant; <br>vi. assist others in using Our services in ways that would violate Our rights including intellectual property rights; <br>vii. use any automated means to extract or download data from the Product otherwise than as permitted; <br>viii. enter any data that is infringes third party rights or any data which is false or misleading; <br>ix. alter, modify, reverse engineer, decrypt, decompile, extract code, modify, creative derivate works, distribute or attempt any of the foregoing; <br>x. gain or attempt to gain unauthorized access to the Product and/or related services or create false user accounts. <br>xi. send, store, or transmit viruses or other harmful computer code through or onto Our Product and related services; <br>xii. interfere with or disrupt the integrity or performance of Our Product or services; <br>xiii. sell, resell, rent, or charge for Our Product and/or related services; <br>xiv. distribute or make Our Product available over a network where they could be used by multiple devices at the same time. <br>xv. that You will not create another account without our permission, If We disable your account for a violation of Our Terms <br><br>c. You acknowledge that the Use of the Product or services (i) contains various materials and content, without limitation, the \"Content\", provided either by the applications/Product, third party authors, developers and vendors and the underlying intellectual rights, copyright and trademarks are owned by Us and /or its contributors and may not be copied in whole or in part or (ii) may grant You access to, or direct You to, third party services, applications, contents, website, etc., all of which are subject to their own terms and conditions. You should comply to the terms of use and policies of each third-party site You visit, which will govern Your use of those third-party services. In the event that You have a dispute with any such third party with respect to the Product, You release Us from any and all claims, demands, and damages pursuant to the relevant provisions contained here. <br><br>d. We may periodically or anytime schedules system downtime for maintenance and other purposes. <br><br>e. We assume no responsibility, and shall not be liable for any damages to, or viruses that may infect, Your mobile equipment or other property on account of Your access to, use of, or downloading the Product or any material, data, text, or images from the Product. <br><br>f. We may independently investigate, involve and/or cooperate with law enforcement authorities in prosecuting or investigating Users. Our sole judgment applies to determinations of these limitations and prohibited uses. <br><br>g. The Product is available on Android &amp; iOS platforms. The requirements for both systems  may change, and you’ll be required  to download the updates for continues use of the Product . Tata Communications does not promise that it will regularly update the Product to make it relevant for your usage and/or works with the Android &amp; iOS version that you have installed on your device. <br><br>h. You shall install the latest updates as and when available for the best performance of the Product . <br><br>",
+      "12. <b>DISCLAIMER:</b> YOU USE OUR PRODUCT AND RELATED SERVICES AT YOUR OWN RISK AND SUBJECT TO THE FOLLOWING DISCLAIMERS. <br><br>a. NOTWITHSTANDING ANY OTHER PROVISION OF THESE TERMS OR ANY OTHER THIRD-PARTY TERMS AND CONDITIONS, COMPANY SPECIFICALLY EXCLUDES AND DISCLAIMS ALL OTHER LIABILITYS, LEGAL, FINANCIAL, OR OTHERWISE. <br>b. WE ARE PROVIDING OUR PRODUCT AND SERVICES ON AN “AS IS” BASIS WITHOUT ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES OF ANY KIND TO ANY USER AND/OR THIRD PARTY, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACIES, TIMELINESS, COMPLETENESS, AND FREEDOM FROM COMPUTER VIRUS OR OTHER HARMFUL CODE. <br>c. WE DO NOT WARRANT THAT ANY INFORMATION PROVIDED BY US IS ACCURATE, COMPLETE, OR USEFUL, OR THAT OUR PRODUCT WILL BE OPERATIONAL, ERROR FREE, SECURE, OR SAFE, OR THAT OUR PRODUCT WILL FUNCTION WITHOUT DISRUPTIONS, DELAYS, OR IMPERFECTIONS. <br>d. WE DO NOT CONTROL, AND ARE NOT RESPONSIBLE FOR, CONTROLLING HOW OR WHEN OUR USERS USE OUR PRODUCT AND RELATED SERVICES OR THE FEATURES, SERVICES, AND INTERFACES OUR PRODUCT AND RLEATED SERVICES PROVIDE. <br>e. WE MAKE NO REPRESENTATIONS OR WARRANTIES THAT THE PRODUCT/APPLICATIONS WILL BE COMPATIBLE WITH OR ACCESSIBLE USING ALL HARDWARE AND/OR SOFTWARE. <br>f. IN NO EVENT SHALL WE BE LIABLE FOR ANY PUNITIVE, DIRECT, INDIRECT, SPECIAL, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES INCLUDING WITHOUT LIMITATION LOST REVENUE OR PROFITS, LOST OPPORTUNITY, TIME, LOSS OF DATA OR ANY OTHER LOSS RESULTING FROM RELIANCE ON THE INFORMATION CONTAINED ON THE PRODUCT AND/OR RELATED SERVICES INCLUDING DAMAGES ARISING FROM INACCURACIES, OMISSIONS OR ERRORS OR ARISING OUT OF THE USE OR INABILITY TO USE THE PRODUCT, OR IN ANY WAY IN CONNECTION WITH OUR TERMS OR OUR SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR SUCH DAMAGES ARE FORESEEABLE AND HOWEVER ARISING, INCLUDING NEGLIGENCE AND WILFUL MISCONDUCT. <br>g. IN ANY CASE, OUR SOLE LIABILITY AND YOUR EXCLUSIVE REMEDY UNDER ANY PROVISION OF THESE TERMS OR THIRD-PARTY AGREEMENT SHALL BE TO DEACTIVATE THE USER ACCESS OR REPLACEMENT OF THE SOFTWARE WHICH IS FOUND TO BE DEFECTIVE. <br>h. YOU AGREE THAT YOU SHALL HAVE THE SOLE RESPONSIBILITY FOR PROTECTING YOUR DATA, BY PERIODIC BACKUP OR OTHERWISE, USED IN CONNECTION WITH THE PRODUCT AND RELATED SERVICES. <br>i. THE INFORMATION CONTAINED IN THE PRODUCT AND/OR RELATED SERIVCES MAY CONTAIN INACCURACIES OR TYPOGRAPHICAL ERRORS. <br>j. THE PRODUCT AND RELATED SERVICES MAY BE CHANGED, UPGRADED OR UPDATED FROM TIME TO TIME WITHOUT ANY NOTICE. <br>k. THE FOREGOING DISCLAIMER OF CERTAIN DAMAGES AND LIMITATION OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. <br>l. IN THE UNITED STATES OR SOME STATES MAY NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES, INCLUDING IMPLIED WARRANTIES, SO THE DISCLAIMERS OR PORTIONS OF THEM MAY NOT APPLY TO YOU. YOUR LEGAL RIGHTS MAY VARY FROM STATE TO STATE. IF YOU ARE DISSATISFIED WITH ANY PORTION OF THESE TERMS, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE USING THE WEBSITE. <br><br>",
+      "13. <b>Indemnification:</b> You agree to indemnify, defend, and hold Tata Communications, its officers, directors, employees, affiliates, partners, suppliers, agents, consultants, subsidiaries and other third parties harmless from any and all liabilities, costs, expenses, including reasonable attorney fees, related to (i) any violation of these Terms, intellectual property, disclaimer or/and usage of the Terms by You, or in connection with Your use or access to the Product or with the placement or transmission of any message or information on the Product by You; (ii) any misrepresentation made by You. At Tata Communications’ sole discretion, and at Your expense, Tata Communications may provide notice to You of its election to assist You in defending such claim, suit or proceeding, but doing so will not excuse You from Your indemnity obligations. <br><br>",
+      "14. <b>Privacy Policy &amp; User Communications:</b> <br> a. <b>User Communications:</b> Subject to the parameters and restrictions set forth in Our Online Privacy Policy https://www.tatacommunications.com/policies/privacy, We are under no obligation to refrain from reproducing, publishing, or otherwise using communications You send to or receive from/by using the Product or otherwise send to or receive from Us by electronic mail or other electronic means, including any ideas, inventions, concepts, techniques, process, data, products, software, hardware, or know-how disclosed therein, for any purpose, including the developing, manufacturing, and/or marketing of products or services incorporating such information. <br>b. <b>Personal Data:</b> You hereby give Us Your consent to use Your personal data consistent with Tata Communications Online Privacy Policy https://www.tatacommunications.com/policies/privacy/. <br>c. Your personal information will be handled in accordance with Our Privacy Policy available on https://www.tatacommunications.com/policies/privacy/. You understand and agree with these uses, transfers, and storage of your personal information. <br><br>",
+      "15. <b>Services Availability:</b> We may provide access to international information; which information may contain references or cross references to programs and services that are not currently available in Your country of residence. Our provision of references to such programs and services does not necessarily mean or otherwise imply that the programs and services announced or discussed are available in countries other than the United States. Also, We are a service provider operating in some, but not all, markets within the U.S. Therefore, it may provide access to information that may contain references or cross references to programs and services that are not announced or available in all U.S. markets. Our provision of references to such programs and services does not necessarily mean or otherwise imply that the programs and services announced or discussed are available in all United States markets or all markets where We conduct business. <br><br>",
+      "16. <b>Consent to Electronic Form of Contract:</b> <br> BY YOUR ACCESS AND USE OF THE PRODUCT AND RELATED SERVICES BY OR THROUGH IT, YOU ACKNOWLEDGE AND CONSENT TO THE ELECTRONIC FORM OF THESE TERMS AND CONDITIONS OF USE. You agree that these provisions, in printed or electronic form, shall be admissible in judicial or arbitration proceedings, to the same extent and subject to the same conditions as other documents and records generated and maintained in written form. Your consent to electronic form extends to all written notices sent by Us. You acknowledge that You have the necessary hardware and software to access these provisions as posted on Our Product and will maintain such hardware and software throughout Your use of the Product and its related services. You may remove Your consent to the electronic form of contracting with Us, but in that event, Your authorization to use and access to the Product and/or related services would stand immediately terminated. <br><br>",
+      "17. <b>Safety and Security:</b> We verify accounts and activity, and promote safety and security on and off Our services/Product, such as by investigating suspicious activity or violations of Our Terms, and to ensure Our services/Product are being used legally. <br><br>",
+      "18. <b>Governing Law and Jurisdiction:</b> These Terms and access and use of the Product and related services are governed by the laws of the agreement/service schedule/order form which has been entered between You and Us. Any legal action or proceeding relating to Your access to, or use of, the shall also be instituted only in the court as per the agreement/service schedule/order form which has been entered between You and Us. You and We agree to submit to the jurisdiction of, and agree that venue is proper in, these courts in any such legal action or proceeding. <br><br>",
+      "19. <b>Waiver:</b> No delay or omission by Us to exercise any right occurring upon any noncompliance on Your part with respect to any of these Terms shall impair any such right or power or be construed to be a waiver thereof. Any waiver by Us of any of the covenants, conditions, or agreements to be performed by You shall not be construed to be a waiver of any succeeding breach thereof or of any covenant, condition, or agreement herein contained. <br><br>",
+      "20. <b>Survival:</b> The provisions herein dealing directly or indirectly with intellectual property, disclaimers of warranties, limitation of liability, Privacy policy, AUP policy, compliance with laws and regulations, security, dispute resolution and use restrictions and prohibitions continue to apply and shall survive the termination or expiration of any relationship between You and Us. <br><br>",
+      "21. <b>Severability:</b> These Terms may include additional terms and conditions and policies which are referenced elsewhere in this document or anywhere else not specifically mentioned herein. Each of the terms and limitations provided by these Terms, including referenced terms and policies, are important to Us. In the event any provision contained herein, including referenced terms and policies, for any reason, is held to be invalid, illegal or unenforceable, by a tribunal of competent jurisdiction to be contrary to the law, the remaining provisions herein will remain in full force and effect, to the maximum extent possible. <br><br>",
+      "22. <b>Open Source &amp; 3rd Party Software:</b> These mobile and web applications contain open-source software that is subject to the terms and conditions of the respective open-source license terms. Please see below link for more details. In the event of conflict between the mobile and web applications' license and the open-source license applicable to such open-source software, the terms of the open source license shall prevail.<br><br>",
+      "<a class=\"link\" href=\"https://fe-slp.raseel.city/oss\">Open Source Software</a>",
+      "23. <b>Contact:</b> For any queries or grievances, please reach out to your Account Manager<br>"
+    ],
+    "copyRight": "\u00A9 2022, http://feinstall.iot.tatacommunications.com",
+    "allRightReserved": "All rights reserved"
+  }
+}

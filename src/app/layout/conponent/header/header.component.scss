@@ -1,0 +1,46 @@
+.container {
+    background-color: #3a85c6;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: env(safe-area-inset-top);
+    z-index: 1;
+
+    .title {
+        width: calc(100vw - 6rem);
+        margin-block: 0rem;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    button{
+        color: #fff !important;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        input {
+            background: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            height: 2rem;
+            width: inherit;
+            color: #fff;
+            font-size: 1.2rem;
+
+            &::placeholder{
+                color: #00000080;
+            }
+
+            &.ng-invalid{
+                margin-inline-end: 1rem;
+            }
+        }
+    }
+}

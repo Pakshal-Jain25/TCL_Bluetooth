@@ -1,0 +1,64 @@
+<form [formGroup]="poleDetailsForm">
+    <div class="fields">
+        <p>{{'newInstallation.pole_details.enter_pole_no' | translate}}</p>
+        <div class="field">
+            <mat-form-field appearance="fill">
+                <input type="text" matInput formControlName="poleNo" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+            </mat-form-field>
+            <button type="button" mat-fab color="primary" (click)="startScan()">
+                <mat-icon>qr_code_scanner</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="fields">
+        <p>{{'newInstallation.pole_details.number_of_lamps' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <mat-select formControlName="noOfLamps">
+                @for(option of [1,2,3,4,5];track option)
+                {
+                    <ng-container>
+                        <mat-option [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </ng-container>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="fields">
+        <p>{{'newInstallation.pole_details.location_category' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <mat-select formControlName="locationId">
+                @for(option of localtionCategory;track option.locationId)
+                {
+                    <ng-container>
+                        <mat-option [value]="option.locationId">
+                            {{option.locationName}}
+                        </mat-option>
+                    </ng-container>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="fields">
+        <p>{{'newInstallation.pole_details.category' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <mat-select formControlName="categoryId">
+                @for(option of category;track option.categoryId)
+                {
+                    <ng-container>
+                        <mat-option [value]="option.categoryId">
+                            {{option.categoryName}}
+                        </mat-option>
+                    </ng-container>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="fields">
+        <p>{{'newInstallation.pole_details.pole_model_number' | translate}}</p>
+        <mat-form-field appearance="fill">
+            <input type="text" matInput formControlName="poleModelNumber" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+        </mat-form-field>
+    </div>
+</form>

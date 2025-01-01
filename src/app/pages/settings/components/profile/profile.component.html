@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="main_content">
+        <div class="user_profile_details">
+            <div class="avatar">
+                <div class="image">
+                    <img [src]="profileImageUrl || '../../../../../../assets/images/default-profile.png'" alt="default user profile">
+                </div>
+                <!-- <img src="../../../../../../assets/images/default-profile.png" alt="default user profile"> -->
+                <button type="button" mat-mini-fab (click)="promptForPhotoUploadSource()">
+                    <mat-icon fontSet="material-icons-round">
+                        photo_camera
+                    </mat-icon>
+                </button>
+                <!-- <input type="file" accept="image/*" hidden #profileImageInput (change)="uploadProfilePicture($event)"> -->
+            </div>
+            <p class="username">{{userData.userName}}</p>
+        </div>
+        <div class="section">
+            <div class="label">
+                <img src="../../../../../../assets/images/person_icon.svg" alt="person_icon">
+                <div class="label_text">
+                    <p>{{'settings.profile.customer_name' | translate}}</p>
+                </div>
+            </div>
+            <p class="value">
+                {{userData.customerName}}
+            </p>
+        </div>
+        <div class="section form-field" [formGroup]="langularFormGroup">
+            <div class="label">
+                <img id="language_icon" src="../../../../../../assets/images/language_icon.svg" alt="language_icon">
+                <mat-form-field appearance="fill">
+                    <mat-select formControlName="language">
+                        <mat-option value="en">English</mat-option>
+                        <mat-option value="ar">عربي</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="section" routerLink="../change-password">
+            <div class="label">
+                <img src="../../../../../../assets/images/lock_icon.svg" alt="lock_icon">
+                <div class="label_text">
+                    <p>{{'settings.profile.change_password' | translate}}</p>
+                    <mat-icon fontSet="material-icons-round">{{'settings.profile.next_icon' | translate}}</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div class="section" routerLink="../terms-and-condition">
+            <div class="label">
+                <img src="../../../../../../assets/images/about_icon.svg" alt="about_icon">
+                <div class="label_text">
+                    <p>{{'settings.profile.about' | translate}}</p>
+                    <mat-icon fontSet="material-icons-round">{{'settings.profile.next_icon' | translate}}</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+@import "./layout/custome_layout_angular-material.scss";
+@import "./auth/custome_auth_angualr-material.scss";
+@import "./setting/custome_settings_angular_material.scss";
+@import "./installation-list/custome_installation-llist_angular_material.scss";
+@import "./new-installaltion/custome_new-installation_angular-material.scss";
+
+app-layout {
+    @include custome_layout_angular-material();
+}
+
+app-auth {
+    @include custome_auth_angualr-material();
+}
+
+auth-terms-and-condition {
+    @include auth_terms_and_condition();
+}
+
+pages-settings {
+    @include custome_settings_angular_material();
+}
+
+settings-profile {
+    @include custome_settings-profile_angular_material();
+}
+
+settings-terms-and-condition {
+    @include about_terms_and_conditon();
+}
+
+pages-installation-list {
+    @include custome_installan-list_angular_material();
+}
+
+installation-list-date-filter {
+    @include custome_installation-list-date-filter_angular_material();
+}
+
+pages-new-installation {
+    @include custome_new-installation_angular_material();
+}
+
+
+// Styles for rtl
+
+html[dir="rtl"] {
+    auth-terms-and-condition {
+        @include auth_terms_and_condition_rtl();
+    }
+
+    auth-forgot-password {
+        @include auth_forgot-password_rtl();
+    }
+
+    auth-change-password {
+        @include auth_change-password_rtl();
+    }
+
+    settings-terms-and-condition {
+        @include about_terms_and_condition_rtl();
+    }
+
+    settings-profile {
+        @include settins-profile_rtl();
+    }
+
+    settings-change-password {
+        @include settins-change-password_rtl();
+    }
+
+    pages-installation-list {
+        @include installation-list_rtl();
+    }
+
+    new-installation-location {
+        @include new-installation-location_rtl();
+    }
+    pages-new-installation{
+        @include newInstalation_rtl();
+    }
+
+}

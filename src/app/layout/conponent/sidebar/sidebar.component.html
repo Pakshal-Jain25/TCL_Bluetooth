@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="user_detail">
+        <div class="avatar">
+            <!-- <img [src]="profileImageUrl" alt="default user profile"> -->
+            <img [src]="profileImageUrl || '../../../../assets/images/default-profile.png'" alt="default user profile">
+        </div>
+        <p class="name">{{userData.userName}}</p>
+        <p class="project_name">{{projectName}}</p>
+    </div>
+    <div class="sidebar_menu-list" (click)="closeDrawer()">
+        <div class="sidebar_menu-item" routerLink="/home/new-installation" routerLinkActive="active"  matRipple>
+            <div class="icon">
+                <img src="../../../../assets/images/new_installation_icon.svg" alt="">
+            </div>
+            <p>{{'sidebar.new_installation' | translate }}</p>
+        </div>
+        <div class="sidebar_menu-item" routerLink="/home/installation-list" routerLinkActive="active"  matRipple>
+            <mat-icon fontSet="material-icons-round">format_list_bulleted</mat-icon>
+            <p>{{'sidebar.list_of_installation' | translate }}</p>
+        </div>
+        <div class="sidebar_menu-item" routerLink="/home/settings" routerLinkActive="active" matRipple>
+            <mat-icon fontSet="material-icons-round">settings</mat-icon>
+            <p>{{'sidebar.settings' | translate}}</p>
+        </div>
+        <div class="sidebar_menu-item"  matRipple (click)="logout()">
+            <mat-icon fontSet="material-icons-round">logout</mat-icon>
+            <p>{{'sidebar.logout' | translate}}</p>
+        </div>
+    </div>
+</div>

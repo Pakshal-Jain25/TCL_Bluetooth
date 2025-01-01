@@ -1,0 +1,31 @@
+@mixin custome_new-installation_angular_material {
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+  p {
+    margin-block-end: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+@mixin new-installation-location_rtl {
+  
+  .backButton {
+    left: unset;
+    right: 0rem;
+  }
+  .locationButton {
+    right: unset;
+    left: 1rem;
+  }
+}
+@mixin newInstalation_rtl {
+  .submitButton {
+    button {
+      mat-icon {
+        left: -4rem !important;
+      }
+    }
+  }
+}

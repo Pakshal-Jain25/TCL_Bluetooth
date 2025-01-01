@@ -1,0 +1,45 @@
+.title{
+    h3{
+        width: 100%;
+        margin-block-start: 0rem;
+        text-align: center;
+        text-decoration: underline;
+    }
+}
+.container {
+
+    p{
+        overflow-wrap: break-word;
+    }
+    
+
+    .copyright {
+        color: rgb(145 145 145);
+        overflow-wrap: break-word;
+    }
+
+    .allRightsReserved {
+        text-align: center;
+        color: rgb(145 145 145);
+    }
+}
+
+.action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    button{
+        width: inherit;
+        color: #fff;
+        font-size: 1rem;
+
+        &.accept{
+            background-color: #35c15a;
+        }
+        &.cancel{
+            background-color: red;
+        }
+    }
+}

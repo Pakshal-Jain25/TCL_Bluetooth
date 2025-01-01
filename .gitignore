@@ -7,7 +7,9 @@
 /bazel-out
 package-lock.json
 /bluetooth-plugin
-
+/src_old2
+/src_old
+package-old.json
 # Node
 /node_modules
 npm-debug.log

@@ -1,0 +1,3 @@
+$StatusBarHeight: env(safe-area-inset-top);
+$verticalHeightOfContainer: calc(100vh - $StatusBarHeight);
+$percentageHeightOfContainer: calc(100% - $StatusBarHeight);

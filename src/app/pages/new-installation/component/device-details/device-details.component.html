@@ -1,0 +1,24 @@
+<form [formGroup]="serialNoForm">
+    <p>{{'newInstallation.device_details.controller_feeder_serial_number' | translate}}</p>
+    <div class="fields">
+        <mat-form-field class="preffix" appearance="fill">
+            <mat-select hideSingleSelectionIndicator="true" formControlName="serialNoPreffix">
+                @for(serialNo of serialNos;track serialNo)
+                {
+                    <ng-container>
+                        <mat-option [value]="serialNo">{{serialNo}}</mat-option>
+                    </ng-container>
+                }
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="suffix" appearance="fill">
+            <input type="text" matInput formControlName="serialNoSuffix" (focusin) = 'onFocus()' (focusout)="noFocusOut()">
+        </mat-form-field>
+        @if(showScannerBtn)
+        {
+            <button type="button" mat-fab (click)="startScan()" color="primary">
+                <mat-icon>qr_code_scanner</mat-icon>
+            </button>
+        }
+    </div>
+</form>

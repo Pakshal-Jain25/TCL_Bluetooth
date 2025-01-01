@@ -1,0 +1,63 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    position: relative;
+
+    .raseel_logo{
+        width: 10rem;
+        position: absolute;
+        top: -8rem;
+
+
+        img{
+            width: inherit;
+        }
+    }
+    
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: inherit;
+        width: 100%;
+
+        mat-form-field{
+            width: inherit;
+
+            mat-icon{
+                color: #00000080;
+            }
+        }
+
+        button{
+            width: 100%;
+            background-color: #35c15a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        p{
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .remember_forgot{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: inherit;
+            color: blue;
+
+            p{
+                font-size: 1rem;
+                margin-block: 0rem;
+            }
+
+        }
+    }
+}

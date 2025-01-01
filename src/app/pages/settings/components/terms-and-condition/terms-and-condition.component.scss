@@ -1,0 +1,27 @@
+.title {
+    padding-top: calc(2rem + env(safe-area-inset-top));
+    h3 {
+        width: 100%;
+        text-align: center;
+        text-decoration: underline;
+    }
+}
+
+.container {
+    margin: 1rem;
+
+    p {
+        overflow-wrap: break-word;
+    }
+
+
+    .copyright {
+        color: rgb(145 145 145);
+        overflow-wrap: break-word;
+    }
+
+    .allRightsReserved {
+        text-align: center;
+        color: rgb(145 145 145);
+    }
+}

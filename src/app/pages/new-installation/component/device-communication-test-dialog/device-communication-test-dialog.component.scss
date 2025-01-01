@@ -1,0 +1,103 @@
+.container {
+    width: calc(100% - 2rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+
+    .loader {
+        display: flex;
+
+        & div {
+            width: 0.8rem;
+            height: 0.8rem;
+            background: black;
+            margin: 10px;
+            border-radius: 50%;
+            animation: loader .5s infinite alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @for $i from 1 to 4 {
+            & div:nth-child(#{$i}) {
+                animation-delay: $i * 0.2s;
+            }
+        }
+
+
+
+    }
+
+    .content {
+        font-size: 1rem;
+
+        .verify_text {
+            margin-block: 0rem;
+            padding-inline: 1rem;
+        }
+
+    }
+}
+
+.content {
+    text-align: center;
+    color: #000;
+    font-size: 1.3rem;
+    line-height: inherit;
+    min-width: 20rem;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 5rem;
+        }
+    }
+
+    p {
+        margin-top: 0.5rem;
+    }
+}
+
+
+
+.action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    button {
+        width: inherit;
+        color: #fff;
+        font-size: 1rem;
+
+        &.accept {
+            background-color: #35c15a;
+        }
+
+        &.cancel {
+            background-color: red;
+        }
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        min-width: 80vw;
+    }
+}

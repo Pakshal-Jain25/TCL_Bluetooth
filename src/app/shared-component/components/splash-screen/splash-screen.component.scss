@@ -1,0 +1,39 @@
+.splash_screen {
+    width: 100vw;
+    height: calc(100vh - env(safe-area-inset-top));
+    background: url('../../../../assets/images/splash_screen_new.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+
+    .raseel_logo {
+        width: 15rem;   
+        padding-top: 50%;
+        img {
+            width: inherit;
+        }
+    }
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 0;
+    
+            p {
+                margin-block: 0rem;
+                color: #fff;
+                font-size: 0.8rem;
+            }
+    
+            img {
+                width: 14rem;
+            }
+        }
+}
