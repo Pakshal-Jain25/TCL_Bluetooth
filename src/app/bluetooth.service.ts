@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Plugins } from '@capacitor/core';
+// import { Plugins } from '@capacitor/core';
+import {Bluetooth} from 'capacitor-plugin-bluetoothbleconnection'
+
 import mqtt from 'mqtt';
 
 import { BehaviorSubject, Observable } from 'rxjs';
-const { BluetoothPlugin } = Plugins;
+// const { BluetoothPlugin } = Plugins;
 
 @Injectable({
   providedIn: 'root',
@@ -44,16 +46,16 @@ export class BluetoothService {
 
   async scanForDevices(): Promise<any> {
     try {
-      const result = await BluetoothPlugin['scanForDevices']();
+      const result = await Bluetooth.scanForDevices();
       return result;
     } catch (error) {
       console.error('Error scanning for devices', error);
     }
   }
 
-  async connectToDevice(deviceAddress: string){
+  async connectToDevice(deviceAddress: string): Promise<any>{
     try {
-      const result = await BluetoothPlugin['connectToDevice']({ deviceAddress });
+      const result = await Bluetooth.connectToDevice({ deviceAddress });
       // await BluetoothPlugin['connectToDevice']({ deviceAddress });
       return result;
     } catch (error) {
@@ -72,7 +74,7 @@ export class BluetoothService {
 
   async disconnectDevice(): Promise<void> {
     try {
-      await BluetoothPlugin['disconnectDevice']();
+      await Bluetooth.disconnectDevice();
     } catch (error) {
       console.error('Error disconnecting device', error);
     }

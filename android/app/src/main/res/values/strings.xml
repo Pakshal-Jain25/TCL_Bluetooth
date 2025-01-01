@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Fe-Regulator</string>
-    <string name="title_activity_main">Fe-Regulator</string>
-    <string name="package_name">com.tatacommunication.fe_regulator</string>
-    <string name="custom_url_scheme">com.tatacommunication.fe_regulator</string>
+    <string name="app_name">Gas Regulator</string>
+    <string name="title_activity_main">Gas Regulator</string>
+    <string name="package_name">com.tatacommunications-gasregulator.app</string>
+    <string name="custom_url_scheme">com.tatacommunications-gasregulator.app</string>
 </resources>
