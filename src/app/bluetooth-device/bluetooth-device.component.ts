@@ -16,6 +16,8 @@ export class BluetoothDeviceComponent {
   deviceId: string = ''; // Input field for deviceId
   deviceName: string = '';
   batteryLevel: number | null = null;
+  serialNumber: string = '';
+  softwareVersion: string = '';
   manufacturer: string = '';
   isConnected: boolean = false;
   devices: any[] = [];
@@ -106,6 +108,8 @@ export class BluetoothDeviceComponent {
             // this.errorMessage = "";
             this.manufacturer = this.result.manufacturerName;
             this.batteryLevel = this.result.batteryLevel;
+            this.serialNumber = this.result.serialNumber;
+            this.softwareVersion = this.result.softwareVersion;
           }
         // Store the connected device ID
       }

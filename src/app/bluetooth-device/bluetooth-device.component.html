@@ -52,6 +52,16 @@
         @if (manufacturer) {
           <p>Manufacturer: {{ manufacturer }}</p>
         }
+
+        @if (serialNumber) 
+        {
+          <p>Serial Number: {{ serialNumber }}</p>
+        }
+
+        @if (softwareVersion)
+        {
+          <p>Software Version: {{ softwareVersion }}</p>
+        }
         <button mat-raised-button (click)="disconnect()">Disconnect</button>
       </div>
     }

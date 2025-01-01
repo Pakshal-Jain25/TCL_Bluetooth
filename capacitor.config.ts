@@ -2,8 +2,8 @@ import { CameraResultType } from '@capacitor/camera';
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'tata',
+  appId: 'com.tatacommunication.fe_regulator',
+  appName: 'Fe-Regulator',
   webDir: 'dist/tata/browser', // Update this if your build output directory differs
   bundledWebRuntime: false, // Set to true if you want to bundle the Capacitor web runtime
   plugins: {

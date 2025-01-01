@@ -10,10 +10,10 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
     implementation project(':capacitor-community-barcode-scanner')
-    implementation project(':capacitor-mlkit-barcode-scanning')
     implementation project(':capacitor-camera')
     implementation project(':capacitor-local-notifications')
-    implementation project(':bluetooth')
+    implementation project(':capacitor-plugin-backgroundservice')
+    implementation project(':capacitor-plugin-bluetoothbleconnection')
 
 }
 

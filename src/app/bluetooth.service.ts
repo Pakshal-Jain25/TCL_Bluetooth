@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Plugins } from '@capacitor/core';import mqtt from 'mqtt';
+import { Plugins } from '@capacitor/core';
+import mqtt from 'mqtt';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 const { BluetoothPlugin } = Plugins;
